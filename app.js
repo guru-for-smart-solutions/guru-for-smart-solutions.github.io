@@ -17,9 +17,10 @@
       hubAria:'خدمات Guru الأربع', hub1:'أدوات برمجية جاهزة', hub1s:'تعمل من أول يوم', hub2:'أتمتة المهام', hub2s:'توفّر ساعات من العمل اليدوي', hub3:'لوحات بيانات تفاعلية', hub3s:'قرارات أوضح من بياناتك', hub4:'دورات تعليمية', hub4s:'في مجال حلول الأعمال',
       liveTitle:'لوحة تحكم توضيحية', sample:'بيانات توضيحية',
       k1:'الإيرادات', k2:'الطلبات', k3:'النمو',
-      toolsH:'أدوات ذكية تعمل من أول نقرة', toolsP:'أدوات SaaS من تصميم وتطوير Guru: نشر تلقائي، إدارة علاقات العملاء، وتخطيط موارد المؤسسات.',
-      soon:'قريبًا', soonImg:'صورة قريبًا', demo:'اطلب عرضًا تجريبيًا ←',
-      t1:'النشر التلقائي بنقرة واحدة', t1p:'انشر مشروعك على الإنترنت دون تعقيد ولا أوامر برمجية.',
+      toolsH:'أدوات ذكية تعمل من أول نقرة', toolsP:'أدوات تستخدمها مباشرة من تصميم وتطوير وكالة Guru: نشر تلقائي، إدارة علاقات العملاء، وتخطيط موارد المؤسسات وغيرها.',
+      soon:'قيد التحديثات حاليًا', soonImg:'قيد التحديثات حاليًا', demo:'اطلب عرضًا تجريبيًا ←',
+      liveNow:'متاح الآن', mjCta:'افتح الأداة ←',
+      t1:'Mr. Josef', t1p:'أداة تجدول منشوراتك وتنشرها لك تلقائيًا على قنواتك في الموعد الذي تحدده، من مكان واحد، دون الحاجة إلى فتح كل منصة على حدة.',
       t2:'نظام CRM', t2p:'تابع عملاءك وصفقاتك ومحادثاتك من لوحة واحدة.',
       t3:'نظام ERP', t3p:'أدر المشتريات والمخزون والمشاريع والتكاليف في نظام متكامل.',
       dataH:'مثال حقيقي لما ستحصل عليه', dataP:'لوحة تفاعلية وتقرير تحليلي كاملان، بُنيا من 100,000 سجل. هكذا يبدو المنتج النهائي الذي نسلّمه لك.',
@@ -55,9 +56,10 @@
       hubAria:'The four Guru services', hub1:'Ready-made tools', hub1s:'Working from day one', hub2:'Task automation', hub2s:'Saves hours of manual work', hub3:'Interactive dashboards', hub3s:'Clearer decisions from your data', hub4:'Educational courses', hub4s:'In business solutions',
       liveTitle:'Sample dashboard', sample:'Sample data',
       k1:'Revenue', k2:'Orders', k3:'Growth',
-      toolsH:'Smart tools that work from the first click', toolsP:'SaaS tools designed and built by Guru: one-click deployment, CRM and ERP.',
-      soon:'Coming soon', soonImg:'Image coming soon', demo:'Request a demo →',
-      t1:'One-click auto deploy', t1p:'Put your project online without complexity or command lines.',
+      toolsH:'Smart tools that work from the first click', toolsP:'Tools you can use right away, designed and built by the Guru agency: auto publishing, CRM, ERP and more.',
+      soon:'Under update', soonImg:'Under update', demo:'Request a demo →',
+      liveNow:'Available now', mjCta:'Open the tool →',
+      t1:'Mr. Josef', t1p:'A tool that schedules your posts and publishes them automatically to your channels at the time you choose, from one place, without opening each platform separately.',
       t2:'CRM system', t2p:'Track customers, deals and conversations from one dashboard.',
       t3:'ERP system', t3p:'Manage purchasing, inventory, projects and costs in one system.',
       dataH:'A real example of what you will get', dataP:'A complete interactive dashboard and analytical report, built from 100,000 records. This is what the final product we deliver to you looks like.',
@@ -93,9 +95,10 @@
       hubAria:'Los cuatro servicios de Guru', hub1:'Herramientas listas', hub1s:'Funcionan desde el primer día', hub2:'Automatización', hub2s:'Ahorra horas de trabajo manual', hub3:'Paneles interactivos', hub3s:'Decisiones más claras con tus datos', hub4:'Cursos educativos', hub4s:'En soluciones empresariales',
       liveTitle:'Panel de ejemplo', sample:'Datos de ejemplo',
       k1:'Ingresos', k2:'Pedidos', k3:'Crecimiento',
-      toolsH:'Herramientas inteligentes desde el primer clic', toolsP:'Herramientas SaaS diseñadas y creadas por Guru: despliegue en un clic, CRM y ERP.',
-      soon:'Próximamente', soonImg:'Imagen próximamente', demo:'Solicitar una demo →',
-      t1:'Despliegue automático en un clic', t1p:'Publica tu proyecto en internet sin complicaciones ni comandos.',
+      toolsH:'Herramientas inteligentes desde el primer clic', toolsP:'Herramientas que puedes usar de inmediato, diseñadas y creadas por la agencia Guru: publicación automática, CRM, ERP y más.',
+      soon:'En actualización', soonImg:'En actualización', demo:'Solicitar una demo →',
+      liveNow:'Disponible ahora', mjCta:'Abrir la herramienta →',
+      t1:'Mr. Josef', t1p:'Una herramienta que programa tus publicaciones y las publica automáticamente en tus canales a la hora que elijas, desde un solo lugar, sin abrir cada plataforma por separado.',
       t2:'Sistema CRM', t2p:'Sigue clientes, oportunidades y conversaciones desde un solo panel.',
       t3:'Sistema ERP', t3p:'Gestiona compras, inventario, proyectos y costes en un sistema integrado.',
       dataH:'Un ejemplo real de lo que recibirás', dataP:'Un panel interactivo y un informe analítico completos, creados a partir de 100.000 registros. Así es el producto final que te entregamos.',
@@ -139,6 +142,7 @@
     document.querySelectorAll('[data-shot]').forEach(function(i){ i.src = i.dataset.shot.replace('{lang}', lang); });
     var cur = document.getElementById('lang-cur');
     if (cur) cur.textContent = {ar:'العربية', en:'English', es:'Español'}[lang];
+    document.querySelectorAll('[data-app-link]').forEach(function(el){ el.setAttribute('href', el.getAttribute('data-app-link') + '/' + lang); });
     document.title = dict.docTitle;
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', dict.metaDesc);
