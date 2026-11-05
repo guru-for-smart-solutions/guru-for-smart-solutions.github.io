@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<script>
+/* Guru site bridge (early): follow the site's language/theme. */
+try{var _q=location.search,_t=(/[?&]theme=(dark|light)/.exec(_q)||[])[1];
+  if(_t)document.documentElement.setAttribute("data-theme",_t);
+  if(!/[?&]lang=(ar|en|es)/.test(_q)){var _g=localStorage.getItem("guru-lang");if(_g==="ar"||_g==="en"||_g==="es")localStorage.setItem("scr-lang",_g)}
+}catch(_e){}
+</script>
+<script src="../assets/guru-theme.js?v=1"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supply Chain Disruption Recovery</title>
+<meta name="description" content="Strategic analysis report: what drives revenue loss and recovery time after supply-chain disruptions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --page:#f4f4f1; --surface:#fcfcfb; --surface-2:#f1f1ed; --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#6f6d67;
+  --line:#e1e0d9; --axis:#c3c2b7; --accent:#2a78d6; --accent-ink:#1c5cab; --accent-soft:rgba(42,120,214,.10);
+  --s2:#eb6834; --s2-soft:rgba(235,104,52,.12); --good:#006300; --warn-bg:#fff6df; --warn-line:#e8c66a;
+  --on-fill:#fff; --shadow:0 1px 2px rgba(11,11,11,.05),0 8px 24px rgba(11,11,11,.05);
+  --font:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --page:#0d0d0d; --surface:#1a1a19; --surface-2:#232321; --ink:#f0efec; --ink-2:#c3c2b7; --ink-3:#a09f97;
+    --line:#2c2c2a; --axis:#383835; --accent:#3987e5; --accent-ink:#86b6ef; --accent-soft:rgba(57,135,229,.16);
+    --s2:#d95926; --s2-soft:rgba(217,89,38,.18); --good:#0ca30c; --warn-bg:#2a2412; --warn-line:#6b5a1d;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#0d0d0d; --surface:#1a1a19; --surface-2:#232321; --ink:#f0efec; --ink-2:#c3c2b7; --ink-3:#a09f97;
+  --line:#2c2c2a; --axis:#383835; --accent:#3987e5; --accent-ink:#86b6ef; --accent-soft:rgba(57,135,229,.16);
+  --s2:#d95926; --s2-soft:rgba(217,89,38,.18); --good:#0ca30c; --warn-bg:#2a2412; --warn-line:#6b5a1d;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.65;
+  padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+[dir="rtl"] body{line-height:1.85}
+.wrap{max-width:1040px;margin-inline:auto}
+a{color:var(--accent-ink)}
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));
+  padding:10px max(16px,env(safe-area-inset-left,0px))}
+.bar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:600;font-size:14px;color:var(--ink-2);display:flex;gap:10px;align-items:center;min-width:0}
+.brand a{color:inherit;text-decoration:none}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{all:unset;cursor:pointer;padding:7px 14px;font-size:13.5px;font-weight:500;color:var(--ink-2);min-height:20px}
+.seg button+button{border-inline-start:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-fill)}
+.seg button:focus-visible,.ibtn:focus-visible,.nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ibtn{all:unset;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:10px;padding:7px 12px;font-size:13.5px;font-weight:500}
+.ibtn:hover{border-color:var(--accent)}
+/* hero */
+.hero{padding:44px 0 8px}
+.eyebrow{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);font-weight:600}
+[dir="rtl"] .eyebrow{letter-spacing:0;text-transform:none;font-size:14px}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:10px 0 12px;font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+[dir="rtl"] h1{line-height:1.4;letter-spacing:0}
+.sub{font-size:clamp(16px,2.2vw,19px);color:var(--ink-2);max-width:62ch;margin:0}
+.meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--ink-3);font-size:14px}
+.meta span{display:inline-flex;gap:6px;align-items:center}
+.cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:14.5px;border-radius:10px;padding:10px 18px;border:1px solid var(--accent);background:var(--accent);color:var(--on-fill)}
+.btn.ghost{background:transparent;color:var(--accent-ink)}
+/* nav */
+.nav{display:flex;gap:6px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:thin}
+.nav a{flex:none;text-decoration:none;color:var(--ink-2);font-size:13.5px;font-weight:500;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);white-space:nowrap}
+.nav a.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
+/* sections */
+section{margin-top:44px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:clamp(18px,3vw,30px)}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);font-weight:700;font-size:14px;margin-inline-end:10px;flex:none}
+h2{font-size:clamp(22px,3.2vw,30px);line-height:1.25;margin:0 0 10px;font-weight:700;display:flex;align-items:flex-start;text-wrap:balance}
+[dir="rtl"] h2{line-height:1.5}
+h3{font-size:16px;margin:26px 0 10px;font-weight:600;color:var(--ink)}
+.lead{font-size:clamp(17px,2.1vw,19.5px);color:var(--ink);margin:0 0 18px;max-width:70ch;font-weight:500}
+p{margin:0 0 12px;max-width:72ch}
+.muted{color:var(--ink-2)}
+.small{font-size:13.5px;color:var(--ink-3)}
+/* summary */
+.answer{border-inline-start:4px solid var(--accent);background:var(--accent-soft);border-radius:4px 14px 14px 4px;padding:18px 22px;margin:0 0 22px}
+[dir="rtl"] .answer{border-radius:14px 4px 4px 14px}
+.answer h3{margin:0 0 6px;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent-ink)}
+[dir="rtl"] .answer h3{letter-spacing:0;text-transform:none;font-size:15px}
+.answer p{margin:0;font-size:clamp(16.5px,2vw,19px);max-width:none}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:0 0 6px}
+.kpi{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.kpi .v{font-size:clamp(34px,5vw,48px);line-height:1.05;font-weight:700;letter-spacing:-.02em;color:var(--ink);direction:ltr;unicode-bidi:isolate;display:inline-block}
+.kpi .u{display:block;font-size:14px;color:var(--ink-2);font-weight:600;margin-top:2px}
+.kpi .l{display:block;margin-top:8px;font-size:14px;color:var(--ink-2);line-height:1.5}
+.kpi.hero{border-color:var(--accent);background:linear-gradient(180deg,var(--accent-soft),transparent)}
+.actions{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.actions li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.actions .n{flex:none;width:26px;height:26px;border-radius:8px;background:var(--accent);color:var(--on-fill);display:grid;place-items:center;font-weight:700;font-size:13px}
+/* charts */
+.chart{margin:18px 0 6px}
+.ctitle{font-size:14.5px;font-weight:600;margin:0 0 12px;color:var(--ink)}
+.grp{font-size:12.5px;font-weight:600;color:var(--ink-3);margin:14px 0 6px}
+.row{display:grid;grid-template-columns:minmax(110px,190px) 1fr;gap:12px;align-items:center;margin:7px 0}
+.row .lb{font-size:14px;color:var(--ink-2);line-height:1.35}
+.track{display:flex;align-items:center;gap:10px;min-width:0}
+.fill{height:20px;border-radius:0 4px 4px 0;background:var(--accent);min-width:2px;flex:none;transition:width .5s ease}
+[dir="rtl"] .fill{border-radius:4px 0 0 4px}
+.fill.b2{background:var(--s2)}
+.val{font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.pair{display:grid;gap:3px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 10px;font-size:13.5px;color:var(--ink-2)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-inline-end:6px;vertical-align:-1px;background:var(--accent)}
+.legend i.b2{background:var(--s2)}
+.cols{display:flex;align-items:flex-end;gap:clamp(8px,3vw,22px);height:210px;border-bottom:1px solid var(--axis);padding:22px 4px 0}
+.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;max-width:90px;margin-inline:auto}
+.col .bar2{width:min(100%,44px);background:var(--accent);border-radius:4px 4px 0 0}
+.col .bar2.hi{background:var(--s2)}
+.col .cv{font-size:13px;font-weight:600;margin-bottom:5px;direction:ltr;unicode-bidi:isolate}
+.collab{display:flex;gap:clamp(8px,3vw,22px);padding:6px 4px 0}
+.collab div{flex:1;max-width:90px;margin-inline:auto;text-align:center;font-size:13px;color:var(--ink-2)}
+.svgwrap{direction:ltr}
+svg text{font-family:var(--font);fill:var(--ink-2);font-size:11px}
+svg .grid{stroke:var(--line);stroke-width:1}
+svg .axis{stroke:var(--axis);stroke-width:1}
+svg .curve{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+svg .area{fill:var(--accent);opacity:.10}
+svg .dot{fill:var(--accent);stroke:var(--surface);stroke-width:2}
+svg .dot2{fill:var(--s2);stroke:var(--surface);stroke-width:2}
+svg .diag{stroke:var(--axis);stroke-width:1}
+svg .lab{fill:var(--ink);font-weight:600;font-size:11.5px}
+/* callouts and tables */
+.note{border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:12px;padding:14px 16px;margin:18px 0 0;font-size:15px}
+.note b:first-child,.ok b:first-child{display:block;margin-bottom:2px}
+.ok{border:1px solid var(--line);background:var(--surface-2);border-radius:12px;padding:14px 16px;margin:18px 0 0;font-size:15px}
+.tw{overflow-x:auto;margin:10px 0 0;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+th,td{padding:10px 14px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface-2);font-weight:600;font-size:13px;color:var(--ink-2);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:end;white-space:nowrap}
+td .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12.5px;font-weight:600;background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);white-space:nowrap}
+.chip.hi{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px}
+.two>*,.card,.track,.row>*{min-width:0}
+@media (max-width:760px){.two{grid-template-columns:minmax(0,1fr)}.row{grid-template-columns:1fr;gap:3px}.hero{padding-top:28px}}
+ul.clean{margin:0;padding-inline-start:20px}
+ul.clean li{margin:7px 0;max-width:72ch}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps li{display:grid;grid-template-columns:130px 1fr;gap:6px 18px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.steps .w{font-weight:700;color:var(--accent-ink)}
+@media (max-width:620px){.steps li{grid-template-columns:1fr}}
+footer{margin:56px 0 40px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13.5px}
+footer p{max-width:none}
+@media print{
+  .bar,.nav,.cta,.tools{display:none!important}
+  body{background:#fff;color:#000;padding:0}
+  .card,.kpi,.actions li,.steps li{box-shadow:none;break-inside:avoid}
+  section{margin-top:26px}
+  .fill,.col .bar2{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <div class="brand"><a id="homeLink" href="../index.html"></a></div>
+  <div class="tools">
+    <div class="seg" role="group" aria-label="Language">
+      <button data-l="ar" lang="ar">العربية</button><button data-l="en" lang="en">English</button><button data-l="es" lang="es">Español</button>
+    </div>
+    <button class="ibtn" id="themeBtn" type="button"></button>
+    <button class="ibtn" id="printBtn" type="button"></button>
+  </div>
+</div></div>
+<main class="wrap" id="app"></main>
+
+<script>
+/* ============ settings you may change ============ */
+var SITE_HOME = "../index.html";          // link back to your site's home page
+var DASHBOARD_URL = "dashboard.html";     // interactive dashboard in the same folder
+/* ================================================== */
+
+var PARETO = [[0.0, 0.0015], [0.02, 0.2435], [0.04, 0.3552], [0.06, 0.4356], [0.08, 0.499], [0.1, 0.5516], [0.12, 0.5961], [0.14, 0.6347], [0.16, 0.6684], [0.18, 0.6982], [0.2, 0.7249], [0.22, 0.749], [0.24, 0.7708], [0.26, 0.7906], [0.28, 0.8086], [0.3, 0.825], [0.32, 0.84], [0.34, 0.8538], [0.36, 0.8665], [0.38, 0.8781], [0.4, 0.8889], [0.42, 0.8988], [0.44, 0.9079], [0.46, 0.9164], [0.48, 0.9242], [0.5, 0.9315], [0.52, 0.9382], [0.54, 0.9443], [0.56, 0.95], [0.58, 0.9553], [0.6, 0.9601], [0.62, 0.9646], [0.64, 0.9687], [0.66, 0.9725], [0.68, 0.976], [0.7, 0.9791], [0.72, 0.982], [0.74, 0.9847], [0.76, 0.9871], [0.78, 0.9892], [0.8, 0.9912], [0.82, 0.9929], [0.84, 0.9944], [0.86, 0.9957], [0.88, 0.9968], [0.9, 0.9978], [0.92, 0.9986], [0.94, 0.9992], [0.96, 0.9996], [0.98, 0.9999], [1.0, 1.0]];
+
+var T = {
+/* ------------------------------------------------------------------ ENGLISH */
+en:{
+ dir:"ltr", lang:"en", title:"Supply Chain Disruption Recovery", doc:"Supply Chain Disruption Recovery: Strategic Report",
+ home:"← Back to site", theme:"Theme", print:"Print / PDF",
+ eyebrow:"Strategic analysis report", h1:"What drives the cost of a supply chain disruption, and what actually speeds recovery",
+ sub:"A decision brief based on 100,000 disruption incidents: where losses come from, which actions improve the outcome, and where to invest first.",
+ meta:["100,000 incidents","15 variables","Observational data, nominal USD","November 2026"],
+ cta1:"Open the interactive dashboard", cta2:"Jump to recommendations",
+ nav:["Summary","Loss drivers","Backup supplier","Response","Supplier change","Risk concentration","Recommendations","Limits","Next steps","Method"],
+ sum:{h:"Executive summary", bl:"The bottom line",
+  bt:"How much a disruption costs is set by who is hit and how hard. How long recovery takes can be shortened by two things the company controls: a backup supplier and the right response strategy. Reacting a day faster, on its own, changes nothing measurable.",
+  kpis:[{v:"252.3",u:"USD billion",l:"Revenue lost across 100,000 incidents",hero:1},{v:"−28%",u:"",l:"Full-recovery time when a backup supplier exists (about 25 days)"},{v:"55%",u:"",l:"Share of total loss produced by the costliest 10% of incidents"},{v:"≈ 0",u:"",l:"Measurable effect of one extra day of response time on recovery"}],
+  ah:"What we recommend",
+  acts:["Close the backup-supplier gap, starting with large suppliers that still have none, then small and medium ones.","Make Alternative Supplier the default response whenever a backup exists.","Focus protection on the costly top: large aerospace and pharmaceutical suppliers.","Do not fund faster response as a stand-alone goal; invest in structure instead."],
+  tr:"Backup-supplier and strategy effects are large and robust. The data, however, are observational, have no dates and look unusually regular, so validate on the company's own records before large commitments (see Limits)."},
+ loss:{h:"Loss is driven by exposure, not by response",
+  lead:"Supplier size, industry and severity together explain about 60% of the variation in revenue loss. Supplier size alone contributes 32.0 percentage points.",
+  c1:"How many times more is lost than in the reference group (adjusted)", g:["Supplier size (vs Small)","Industry (vs Consumer Goods)","Severity (vs severity 1)"],
+  c2:"Unique contribution of each factor to the explained variation (percentage points)",
+  note:"Once size, industry and severity are known, disruption type, region, backup supplier and response strategy add nothing to the explanation of how much money is lost.",
+  src:"Source: regression on log revenue loss, all factors held equal (R² = 0.60). A large supplier loses 11.66 times more than a small one; an aerospace incident 6.14 times more than a consumer-goods one; a severity-5 incident 6.58 times more than severity 1."},
+ bk:{h:"A backup supplier shortens recovery by 28%, but does not reduce the loss",
+  lead:"Among comparable incidents, those with a backup supplier reach full recovery 28.1% sooner (95% CI: 28.6% to 27.6%), about 25 days per incident.",
+  c1:"Median days to full recovery, by supplier size", w:"With backup supplier", wo:"Without backup supplier",
+  th0:"Adjusted effect of having a backup supplier (same size, industry, severity, tier and type)",
+  th:["Outcome","Effect of having a backup","95% CI"],
+  rows:[["Full recovery time","−28.1%","−28.6% to −27.6%"],["Partial recovery time","−18.8%","−19.6% to −17.9%"],["Time to start the response","−43.3%","−44.0% to −42.7%"],["Revenue loss","−0.1% (no measurable effect)","−1.4% to +1.2%"],["Production impact","0.0 points","−0.13 to +0.13 points"]],
+  trap:"A trap in the raw numbers",
+  trapt:"Raw average loss is higher with a backup supplier (USD 2.85 million against 2.11 million), which would suggest backups hurt. The cause is mix: large suppliers lose far more in any incident and are far more likely to have a backup (69.6% of large, 54.7% of medium and 45.2% of small suppliers). After comparing like with like, the effect on loss is zero.",
+  ins:"A backup supplier shortens the aftermath; it does not reduce the damage, which is already set by who is hit and how hard. The recovery gain is the same in every supplier size."},
+ rs:{h:"Strategy matters; speed on its own does not",
+  lead:"Alternative Supplier is the fastest strategy and Customer Delay the slowest. No strategy changes the revenue lost in a measurable way.",
+  c1:"Extra recovery time compared with Alternative Supplier (adjusted)", f:"Full recovery", p:"Partial recovery",
+  s:["Inventory Buffer","Combined Strategy","Production Reroute","Customer Delay"],
+  h2:"Does response speed matter?",
+  t1:"In the raw data, slow responses look worse: full recovery averages 69.3 days when the response starts after 1 day and 101.3 days when it takes 15 days or more. But the slower the response, the less likely a backup supplier exists (68% of cases at 1 day, 11% at 15 days or more). It is the missing backup, not the delay, that lengthens recovery.",
+  t2:"After adjustment, each extra day of response time changes full recovery by −0.005% (95% CI: −0.083% to +0.074%): statistically zero.",
+  note:"Response time may be defined inconsistently in the data (5,722 incidents report a response time longer than partial recovery). Treat this conclusion with caution; even in the least favorable test the effect stays below 1% per day.",
+  nb:"Combined Strategy looks worst in raw averages only because it is used for the most severe incidents (35.2% of severity-5 cases against 5.1% of severity-1 cases)."},
+ ch:{h:"Severity and recovery length trigger permanent supplier changes",
+  lead:"23.9% of incidents ended with the supplier permanently replaced. The rate rises from 16.4% at severity 1 to 40.8% at severity 5.",
+  c1:"Share of incidents ending in a permanent supplier change, by severity", sev:"Severity",
+  b:["A backup supplier cuts the odds of a permanent change almost in half (odds ratio 0.52): 18.6% with a backup against 30.5% without.","Every additional 30 days of recovery raises the odds by 8.2%, so a backup also lowers them indirectly by shortening recovery.","The rate jumps between severity 3 and 4 (23.2% to 39.6%) and then flattens.","It is hard to foresee: a model reaches an AUC of only 0.66 (0.5 is a coin toss), so the decision depends on factors missing from the data, such as contracts and switching costs."]},
+ rk:{h:"Risk is concentrated in a few large incidents",
+  lead:"The costliest 10% of incidents produce 55.2% of the loss, and 27.0% of incidents account for 80% of it (Gini coefficient = 0.69).",
+  c1:"Cumulative share of total loss", xl:"Share of incidents, from costliest to least costly", yl:"Share of total loss",
+  p1:"Top 10% of incidents: 55.2% of loss", p2:"27.0% of incidents: 80% of loss", eq:"Equal spread",
+  th:["Group","Share of all incidents","Share of costliest 10%","Share of costliest 1%"],
+  rows:[["Large suppliers","25.0%","77.1%","92.7%"],["Medium suppliers","45.2%","22.2%","7.3%"],["Small suppliers","29.9%","0.8%","0.0%"],["Aerospace","10.1%","26.3%","47.8%"],["Pharmaceuticals","15.0%","24.1%","25.5%"],["Automotive","24.9%","24.5%","16.4%"],["Electronics","29.8%","20.8%","9.5%"],["Consumer Goods","20.2%","4.3%","0.8%"]],
+  note:"Large aerospace and pharmaceutical suppliers are 6.3% of incidents but 28.5% of total loss. Aerospace segments are costly because each incident is very expensive; the automotive port-congestion segment is costly because it is so frequent.",
+  pr:"Can outcomes be predicted?",
+  prt:"Models trained on 80% of incidents and tested on the other 20% cut the typical error by about 24% for recovery time (30.8 days against 40.7 for a naive guess) and by 28% for revenue loss (USD 1.59 million against 2.21 million). They are useful for ranking and planning, not for forecasting a single incident."},
+ rc:{h:"Recommendations",
+  lead:"Ordered by expected impact against effort. Strength shows how firmly the data support each one.",
+  th:["#","Recommendation","Evidence","Strength","Effort"],
+  rows:[
+   ["Close the backup-supplier gap, starting with the 30.4% of large suppliers that have none, then small (45.2% covered) and medium (54.7%) suppliers.","Full recovery 28.1% faster (about 25 days); odds of a permanent supplier change almost halved (0.52); response starts 43.3% sooner.","High","High"],
+   ["Make Alternative Supplier the default response whenever a backup exists; use Customer Delay only when nothing better is available.","Customer Delay adds 28.8% to full recovery and 84.6% to partial recovery.","High for recovery time; no effect on loss","Low"],
+   ["Concentrate protection on the costly top: large aerospace and pharmaceutical suppliers and the five costliest segments.","6.3% of incidents, 28.5% of loss; large suppliers hold 92.7% of the costliest 1%.","High","Medium"],
+   ["Set an escalation rule for severity 4 and 5 incidents and for recoveries beyond 60 days: review the supplier and prepare the alternative early.","Permanent change reaches 39.6% to 40.8% at severity 4 and 5, and 29.6% to 34.1% when recovery exceeds 61 days.","Moderate","Low"],
+   ["Do not fund faster response as a stand-alone goal; treat it as good practice, not as a lever.","Effect of response time on recovery is statistically zero (−0.005% per day).","Moderate","—"],
+   ["Improve data capture: dates, the cost of each action, and precise definitions of response time and of backup status at the time of the event.","See Limits.","—","Low"]],
+  nt:"What not to do",
+  nb:["Do not prioritize by region or by disruption type; neither adds explanatory power once size, industry and severity are known.","Do not expect a backup supplier to lower the revenue lost in a single event. Its value lies in faster recovery and a steadier supplier relationship; weigh the cost of coverage against those gains.","Do not read raw strategy averages as a ranking."]},
+ lm:{h:"Limits and how far to trust this",
+  b:["<b>Association, not proof of cause.</b> The data are observational. Adjusted effects are the best comparison the data allow, not an experiment.","<b>The data look unusually regular.</b> Supplier region has no effect on anything and every industry has almost the same average recovery time (75.6 to 76.3 days). The file may be simulated; validate on the company's own records before major decisions.","<b>No dates.</b> Trends, seasonality and whether a backup supplier existed before the event cannot be checked.","<b>Ambiguous response time.</b> In 5,722 incidents (5.7%) it exceeds the time to partial recovery. Either way its effect stays below 1% per day.","<b>Significance is not importance.</b> With 100,000 incidents even tiny effects look statistically significant; judge by effect size.","<b>Limited predictability.</b> The models explain 46% of the variation in recovery time and 60% in loss; a large part remains unexplained."]},
+ nx:{h:"Next steps", th:["When","Step","Purpose"],
+  rows:[["First 30 days","Confirm the definitions with the data owner: response time, the severity scale, and whether a backup supplier was in place before the event.","Remove the main ambiguities."],["First 30 days","Repeat this analysis on the company's own records, with dates.","Confirm the figures hold outside this file."],["1 to 3 months","Build a cost-benefit model for backup suppliers: cost of qualifying one against about 25 days of recovery saved and a lower chance of a forced supplier change.","Decide where coverage pays off first."],["3 to 6 months","Roll out backup coverage in phases and compare against suppliers not yet covered.","Turn an association into a measured effect."],["Ongoing","Refresh the dashboard monthly and track backup coverage, recovery time by strategy and loss concentration.","Keep the evidence current."]]},
+ mt:{h:"Method and data quality",
+  p:["Every figure in this report and in the interactive dashboard comes from one analysis script run on the same cleaned file, so the numbers match everywhere. Revenue loss and recovery days were analyzed on a logarithmic scale because losses are strongly right-skewed (mean USD 2.52 million against a median of USD 0.88 million). Effects were estimated with multiple regression and robust standard errors, odds with logistic regression, concentration with the Pareto curve, Gini coefficient and lift, and predictability with gradient-boosted trees tested on 20% of incidents held out.",
+   "<b>Data quality.</b> No missing values, no duplicate rows or identifiers, consistent labels. Nothing was removed. Flagged and kept: 738 incidents with a loss exactly at the USD 10,000 floor, 8 incidents with 100% production impact, 5,722 incidents whose response time exceeds partial recovery time, and 10,620 statistical outliers in loss, which are real. Sensitivity tests without the first and third groups leave the conclusions unchanged."],
+  rg:["<b>Adjusted</b> means after holding the other factors equal: the fair comparison.","<b>Reference group:</b> every multiplier is relative to one group (Small, Consumer Goods, severity 1, Alternative Supplier).","<b>95% CI (confidence interval):</b> if it includes zero (or 1 for ratios), the effect cannot be told apart from no effect."]},
+ ft:"Prepared from the file supply_chain_disruption_recovery.csv (100,000 incidents, 15 columns). Observational data; amounts in nominal US dollars. Number format: decimal point, comma as thousands separator."
+},
+
+/* ------------------------------------------------------------------ ARABIC */
+ar:{
+ dir:"rtl", lang:"ar", title:"تعافي سلسلة التوريد من التعطّلات", doc:"تعافي سلسلة التوريد من التعطّلات: التقرير الاستراتيجي",
+ home:"← العودة إلى الموقع", theme:"المظهر", print:"طباعة / PDF",
+ eyebrow:"تقرير تحليلي استراتيجي", h1:"ما الذي يحدّد كلفة تعطّل سلسلة التوريد، وما الذي يسرّع التعافي فعلًا",
+ sub:"موجز لصنّاع القرار مبني على 100,000 حادثة تعطّل: مصدر الخسائر، والإجراءات التي تحسّن النتيجة، وأين يُوجَّه الاستثمار أولًا.",
+ meta:["100,000 حادثة","15 متغيّرًا","بيانات رصدية، بالدولار الأمريكي الاسمي","نوفمبر 2026"],
+ cta1:"افتح لوحة المؤشرات التفاعلية", cta2:"انتقل إلى التوصيات",
+ nav:["الملخّص","محرّكات الخسارة","المورّد الاحتياطي","الاستجابة","تغيير المورّد","تركّز المخاطر","التوصيات","القيود","الخطوات التالية","المنهجية"],
+ sum:{h:"الملخّص التنفيذي", bl:"الخلاصة",
+  bt:"تتحدّد كلفة التعطّل بمَن أُصيب وبأيّ شدّة، بينما يمكن تقصير مدّة التعافي بأمرين تتحكّم بهما الشركة: وجود مورّد احتياطي واختيار استراتيجية الاستجابة المناسبة. أما الاستجابة بسرعة أكبر بيومٍ واحد، بمفردها، فلا تُحدِث أثرًا يمكن قياسه.",
+  kpis:[{v:"252.3",u:"مليار دولار",l:"خسائر الإيرادات في 100,000 حادثة",hero:1},{v:"−28%",u:"",l:"انخفاض زمن التعافي الكامل عند وجود مورّد احتياطي (نحو 25 يومًا)"},{v:"55%",u:"",l:"حصة أعلى 10% من الحوادث كلفةً من إجمالي الخسارة"},{v:"≈ 0",u:"",l:"الأثر القابل للقياس ليومٍ إضافي في زمن الاستجابة على التعافي"}],
+  ah:"ما نوصي به",
+  acts:["سدّ فجوة المورّد الاحتياطي، بدءًا بالموردين الكبار الذين لا يملكونه بعد، ثم الصغار والمتوسطين.","جعل «مورّد بديل» الاستجابة الافتراضية متى وُجد مورّد احتياطي.","تركيز الحماية على القمة المكلفة: الموردون الكبار في الطيران والفضاء والأدوية.","عدم تمويل تسريع الاستجابة هدفًا قائمًا بذاته، بل الاستثمار في البنية."],
+  tr:"أثر المورّد الاحتياطي والاستراتيجية كبير وحصين. غير أن البيانات رصدية ولا تتضمّن تواريخ وتبدو منتظمة على نحوٍ غير معتاد؛ لذا ينبغي التحقق من سجلات الشركة الفعلية قبل الالتزامات الكبيرة (انظر القيود)."},
+ loss:{h:"الخسارة يحدّدها التعرّض لا الاستجابة",
+  lead:"يفسّر حجم المورّد والقطاع والشدّة معًا نحو 60% من التباين في خسارة الإيرادات، ويسهم حجم المورّد وحده بـ32.0 نقطة مئوية.",
+  c1:"كم ضعفًا تزيد الخسارة مقارنةً بمجموعة المرجع (بعد الضبط)", g:["حجم المورّد (مقابل الصغير)","القطاع (مقابل السلع الاستهلاكية)","الشدّة (مقابل الشدّة 1)"],
+  c2:"المساهمة الفريدة لكل عامل في التباين المفسَّر (نقاط مئوية)",
+  note:"متى عُرف الحجم والقطاع والشدّة، فإن نوع التعطّل والمنطقة والمورّد الاحتياطي واستراتيجية الاستجابة لا تضيف شيئًا إلى تفسير حجم الأموال المفقودة.",
+  src:"المصدر: انحدار على لوغاريتم خسارة الإيرادات مع تثبيت العوامل الأخرى (R² = 0.60). يخسر المورّد الكبير 11.66 ضعف ما يخسره الصغير، وتخسر حادثة الطيران والفضاء 6.14 أضعاف حادثة السلع الاستهلاكية، وحادثة الشدّة 5 ما يعادل 6.58 أضعاف الشدّة 1."},
+ bk:{h:"المورّد الاحتياطي يقلّص التعافي بنسبة 28% لكنه لا يخفّض الخسارة",
+  lead:"بين الحوادث المتماثلة، تبلغ الحوادث التي لها مورّد احتياطي التعافي الكامل أسرع بنسبة 28.1% (فاصل الثقة 95%: من 28.6% إلى 27.6%)، أي نحو 25 يومًا للحادثة الواحدة.",
+  c1:"وسيط أيّام التعافي الكامل بحسب حجم المورّد", w:"مع مورّد احتياطي", wo:"من دون مورّد احتياطي",
+  th0:"الأثر المعدَّل لوجود مورّد احتياطي (مع تثبيت الحجم والقطاع والشدّة والمستوى والنوع)",
+  th:["النتيجة","أثر وجود المورّد الاحتياطي","فاصل الثقة 95%"],
+  rows:[["زمن التعافي الكامل","−28.1%","من −28.6% إلى −27.6%"],["زمن التعافي الجزئي","−18.8%","من −19.6% إلى −17.9%"],["زمن بدء الاستجابة","−43.3%","من −44.0% إلى −42.7%"],["خسارة الإيرادات","−0.1% (لا أثر قابل للقياس)","من −1.4% إلى +1.2%"],["أثر الإنتاج","0.0 نقطة","من −0.13 إلى +0.13 نقطة"]],
+  trap:"فخّ في الأرقام الخام",
+  trapt:"متوسط الخسارة الخام أعلى مع المورّد الاحتياطي (2.85 مليون دولار مقابل 2.11 مليون)، وهذا يوحي بأن المورّد الاحتياطي يضرّ. والسبب تركيبة الحالات: فالموردون الكبار يخسرون أكثر بكثير في أي حادثة، وهم أكثر ميلًا إلى امتلاك مورّد احتياطي (69.6% من الكبار و54.7% من المتوسطين و45.2% من الصغار). وعند مقارنة المتماثلات يصبح الأثر في الخسارة صفرًا.",
+  ins:"يقصّر المورّد الاحتياطي ما بعد الحادثة، ولا يقلّل الضرر الذي يتحدّد أصلًا بمَن أُصيب وبأيّ شدّة. ومكسب التعافي نفسه في كل أحجام الموردين."},
+ rs:{h:"الاستراتيجية مهمّة، أما السرعة وحدها فلا",
+  lead:"«مورّد بديل» أسرع الاستراتيجيات و«تأجيل العميل» أبطؤها. ولا تغيّر أيٌّ منها خسارة الإيرادات تغييرًا قابلًا للقياس.",
+  c1:"زمن التعافي الإضافي مقارنةً بـ«مورّد بديل» (بعد الضبط)", f:"التعافي الكامل", p:"التعافي الجزئي",
+  s:["مخزون احتياطي","استراتيجية مركّبة","إعادة توجيه الإنتاج","تأجيل العميل"],
+  h2:"هل لسرعة الاستجابة أهمية؟",
+  t1:"في البيانات الخام تبدو الاستجابة البطيئة أسوأ: يبلغ متوسط التعافي الكامل 69.3 يومًا حين تبدأ الاستجابة بعد يوم واحد، و101.3 يومًا حين تستغرق 15 يومًا فأكثر. لكن كلما تأخّرت الاستجابة قلّ احتمال وجود مورّد احتياطي (68% من الحالات عند يوم واحد، و11% عند 15 يومًا فأكثر). فالذي يطيل التعافي هو غياب المورّد الاحتياطي لا التأخير.",
+  t2:"بعد الضبط، يغيّر كل يوم إضافي في زمن الاستجابة التعافي الكامل بمقدار −0.005% (فاصل الثقة 95%: من −0.083% إلى +0.074%)، وهو صفر من الناحية الإحصائية.",
+  note:"قد يكون تعريف زمن الاستجابة في البيانات غير متسق (في 5,722 حادثة يزيد زمن الاستجابة على زمن التعافي الجزئي). لذا يُؤخذ هذا الاستنتاج بحذر؛ وحتى في أقلّ الاختبارات مواءمة يبقى الأثر دون 1% لكل يوم.",
+  nb:"تبدو «الاستراتيجية المركّبة» الأسوأ في المتوسطات الخام لأنها تُستخدم في أشدّ الحوادث فحسب (35.2% من حالات الشدّة 5 مقابل 5.1% من حالات الشدّة 1)."},
+ ch:{h:"الشدّة وطول التعافي يدفعان إلى تغيير المورّد نهائيًا",
+  lead:"انتهت 23.9% من الحوادث باستبدال المورّد بشكل دائم. وترتفع النسبة من 16.4% عند الشدّة 1 إلى 40.8% عند الشدّة 5.",
+  c1:"نسبة الحوادث التي انتهت بتغيير دائم للمورّد، بحسب الشدّة", sev:"الشدّة",
+  b:["يخفض المورّد الاحتياطي أرجحية التغيير الدائم إلى قرابة النصف (نسبة الأرجحية 0.52): 18.6% مع المورّد الاحتياطي مقابل 30.5% من دونه.","كل 30 يومًا إضافية من التعافي ترفع الأرجحية بنسبة 8.2%؛ فالمورّد الاحتياطي يخفضها كذلك على نحو غير مباشر بتقصير التعافي.","تقفز النسبة بين الشدّة 3 والشدّة 4 (من 23.2% إلى 39.6%) ثم تستقر.","يصعب التنبؤ به: يبلغ نموذج التنبؤ مساحة تحت المنحنى (AUC) قدرها 0.66 فقط (0.5 يعادل الحظّ العشوائي)، فالقرار يتوقف على عوامل غير موجودة في البيانات، كالعقود وكلفة التحوّل."]},
+ rk:{h:"المخاطر متركّزة في عدد قليل من الحوادث الكبيرة",
+  lead:"تنتج أعلى 10% من الحوادث كلفةً 55.2% من الخسارة، وتستأثر 27.0% من الحوادث بنسبة 80% منها (معامل جيني = 0.69).",
+  c1:"الحصة التراكمية من إجمالي الخسارة", xl:"نسبة الحوادث، من الأكثر كلفةً إلى الأقل", yl:"نسبة إجمالي الخسارة",
+  p1:"أعلى 10% من الحوادث: 55.2% من الخسارة", p2:"27.0% من الحوادث: 80% من الخسارة", eq:"توزيع متساوٍ",
+  th:["الفئة","حصتها من كل الحوادث","حصتها من أعلى 10% كلفةً","حصتها من أعلى 1% كلفةً"],
+  rows:[["الموردون الكبار","25.0%","77.1%","92.7%"],["الموردون المتوسطون","45.2%","22.2%","7.3%"],["الموردون الصغار","29.9%","0.8%","0.0%"],["الطيران والفضاء","10.1%","26.3%","47.8%"],["الأدوية","15.0%","24.1%","25.5%"],["السيارات","24.9%","24.5%","16.4%"],["الإلكترونيات","29.8%","20.8%","9.5%"],["السلع الاستهلاكية","20.2%","4.3%","0.8%"]],
+  note:"يشكّل الموردون الكبار في الطيران والفضاء والأدوية 6.3% من الحوادث و28.5% من إجمالي الخسارة. وشرائح الطيران والفضاء مكلفة لأن كل حادثة فيها باهظة، أما شريحة السيارات مع ازدحام الموانئ فمكلفة لكثرة حوادثها.",
+  pr:"هل يمكن التنبؤ بالنتائج؟",
+  prt:"خفّضت النماذج المدرَّبة على 80% من الحوادث والمختبَرة على الـ20% الباقية الخطأ المعتاد بنحو 24% في زمن التعافي (30.8 يومًا مقابل 40.7 لتخمين ساذج) وبنحو 28% في خسارة الإيرادات (1.59 مليون دولار مقابل 2.21 مليون). وهي مفيدة للترتيب والتخطيط، لا للتنبؤ بحادثة بعينها."},
+ rc:{h:"التوصيات",
+  lead:"مرتّبة بحسب الأثر المتوقع قياسًا إلى الجهد. وتبيّن «القوة» مدى دعم البيانات لكل توصية.",
+  th:["#","التوصية","الدليل","القوة","الجهد"],
+  rows:[
+   ["سدّ فجوة المورّد الاحتياطي، بدءًا بنسبة 30.4% من الموردين الكبار التي لا مورّد احتياطي لها، ثم الموردين الصغار (تغطية 45.2%) والمتوسطين (54.7%).","تعافٍ كامل أسرع بنسبة 28.1% (نحو 25 يومًا)؛ وأرجحية التغيير الدائم للمورّد تنخفض إلى النصف تقريبًا (0.52)؛ وتبدأ الاستجابة أبكر بنسبة 43.3%.","عالية","عالٍ"],
+   ["جعل «مورّد بديل» الاستجابة الافتراضية متى وُجد مورّد احتياطي، واستعمال «تأجيل العميل» عند انعدام خيار أفضل فقط.","«تأجيل العميل» يضيف 28.8% إلى التعافي الكامل و84.6% إلى التعافي الجزئي.","عالية لزمن التعافي، ولا أثر في الخسارة","منخفض"],
+   ["تركيز الحماية على القمة المكلفة: الموردون الكبار في الطيران والفضاء والأدوية، والشرائح الخمس الأعلى كلفة.","6.3% من الحوادث و28.5% من الخسارة؛ ويستحوذ الموردون الكبار على 92.7% من أعلى 1% كلفةً.","عالية","متوسط"],
+   ["وضع قاعدة تصعيد للحوادث ذات الشدّة 4 و5 وللتعافي الذي يتجاوز 60 يومًا: مراجعة المورّد وتجهيز البديل مبكرًا.","يبلغ التغيير الدائم 39.6% إلى 40.8% عند الشدّتين 4 و5، و29.6% إلى 34.1% حين يتجاوز التعافي 61 يومًا.","متوسطة","منخفض"],
+   ["عدم تمويل تسريع الاستجابة هدفًا قائمًا بذاته؛ بل اعتباره ممارسة جيدة لا رافعة للنتائج.","أثر زمن الاستجابة في التعافي صفر من الناحية الإحصائية (−0.005% لكل يوم).","متوسطة","—"],
+   ["تحسين جمع البيانات: تسجيل التواريخ وكلفة كل إجراء، وتعريف دقيق لزمن الاستجابة ولوجود المورّد الاحتياطي لحظة وقوع الحدث.","انظر القيود.","—","منخفض"]],
+  nt:"ما لا ينبغي فعله",
+  nb:["عدم تحديد الأولويات بحسب المنطقة أو نوع التعطّل؛ فلا يضيف أيٌّ منهما قدرة تفسيرية متى عُرف الحجم والقطاع والشدّة.","عدم توقّع أن يخفض المورّد الاحتياطي الإيرادات المفقودة في حادثة بعينها. فقيمته في سرعة التعافي واستقرار علاقة التوريد، وينبغي موازنة كلفة التغطية بهذه المكاسب.","عدم قراءة متوسطات الاستراتيجيات الخام ترتيبًا بينها."]},
+ lm:{h:"القيود وحدود الثقة بالنتائج",
+  b:["<b>ارتباط لا دليل سببية.</b> البيانات رصدية. والآثار المعدّلة هي أفضل مقارنة تتيحها البيانات، لا تجربة مضبوطة.","<b>البيانات منتظمة على نحو غير معتاد.</b> لا أثر لمنطقة المورّد في أي شيء، ولكل قطاع تقريبًا متوسط التعافي نفسه (من 75.6 إلى 76.3 يومًا). وقد يكون الملف مصطنعًا؛ فينبغي التحقق من سجلات الشركة نفسها قبل القرارات الكبيرة.","<b>لا توجد تواريخ.</b> فلا يمكن فحص الاتجاهات ولا الموسمية ولا ما إذا كان المورّد الاحتياطي قائمًا قبل وقوع الحدث.","<b>غموض زمن الاستجابة.</b> في 5,722 حادثة (5.7%) يتجاوز زمن التعافي الجزئي. وفي الحالتين يبقى أثره دون 1% لكل يوم.","<b>الدلالة الإحصائية ليست أهمية عملية.</b> مع 100,000 حادثة تبدو حتى أصغر الآثار ذات دلالة إحصائية؛ والحكم يكون بحجم الأثر.","<b>قدرة تنبؤية محدودة.</b> تفسّر النماذج 46% من التباين في زمن التعافي و60% منه في الخسارة، ويبقى جزء كبير دون تفسير."]},
+ nx:{h:"الخطوات التالية", th:["الموعد","الخطوة","الغرض"],
+  rows:[["أول 30 يومًا","تأكيد التعريفات مع مالك البيانات: زمن الاستجابة، ومقياس الشدّة، وهل كان المورّد الاحتياطي قائمًا قبل الحدث.","إزالة الغموض الرئيس."],["أول 30 يومًا","إعادة هذا التحليل على سجلات الشركة نفسها مع التواريخ.","التأكد من صمود الأرقام خارج هذا الملف."],["من شهر إلى 3 أشهر","بناء نموذج للكلفة والعائد للموردين الاحتياطيين: كلفة تأهيل مورّد احتياطي مقابل نحو 25 يومًا من التعافي الموفَّر وانخفاض احتمال التغيير الاضطراري للمورّد.","تحديد أين يؤتي التوسع في التغطية ثماره أولًا."],["من 3 إلى 6 أشهر","التوسع في التغطية الاحتياطية على مراحل ومقارنتها بالموردين غير المشمولين بعد.","تحويل الارتباط إلى أثر مقيس."],["بصورة مستمرة","تحديث لوحة المؤشرات شهريًا ومتابعة التغطية الاحتياطية وزمن التعافي حسب الاستراتيجية وتركّز الخسارة.","إبقاء الأدلة محدّثة."]]},
+ mt:{h:"المنهجية وجودة البيانات",
+  p:["جميع الأرقام في هذا التقرير وفي لوحة المؤشرات التفاعلية جاءت من نص تحليل واحد شُغّل على الملف المنظّف نفسه، لذا تتطابق الأرقام في كل مكان. وقد حُلّلت خسارة الإيرادات وأيّام التعافي بمقياس لوغاريتمي لأن الخسارة ملتوية نحو اليمين بشدّة (المتوسط 2.52 مليون دولار مقابل وسيط قدره 0.88 مليون دولار). وقُدّرت الآثار بالانحدار المتعدّد مع أخطاء معيارية حصينة، والأرجحية بالانحدار اللوجستي، والتركّز بمنحنى باريتو ومعامل جيني والرفع، والقدرة التنبؤية بأشجار معزَّزة بالتدرّج اختُبرت على 20% من الحوادث استُبقيت جانبًا.",
+   "<b>جودة البيانات.</b> لا قيم مفقودة، ولا صفوف أو معرّفات مكرّرة، والتسميات متسقة. ولم يُحذف شيء. وقد وُسمت وأُبقيت الحالات الآتية: 738 حادثة خسارتها عند الحد الأدنى 10,000 دولار بالضبط، و8 حوادث أثرها في الإنتاج 100%، و5,722 حادثة يتجاوز زمن استجابتها زمن التعافي الجزئي، و10,620 قيمة شاذّة إحصائيًا في الخسارة وهي حقيقية. ولا تغيّر اختبارات الحساسية بدون المجموعتين الأولى والثالثة الاستنتاجات."],
+  rg:["<b>المعدَّل</b> يعني بعد تثبيت العوامل الأخرى: وهو المقارنة العادلة.","<b>مجموعة المرجع:</b> كل مضاعِف نسبيّ إلى مجموعة واحدة (الصغير، السلع الاستهلاكية، الشدّة 1، مورّد بديل).","<b>فاصل الثقة 95%:</b> إذا شمل الصفر (أو 1 في النسب) فلا يمكن تمييز الأثر عن انعدامه."]},
+ ft:"أُعدّ من الملف supply_chain_disruption_recovery.csv (100,000 حادثة، 15 عمودًا). بيانات رصدية؛ والمبالغ بالدولار الأمريكي الاسمي. صيغة الأرقام: أرقام غربية (0–9) وفاصلة عشرية نقطة وفاصلة للآلاف."
+},
+
+/* ------------------------------------------------------------------ SPANISH */
+es:{
+ dir:"ltr", lang:"es", title:"Recuperación ante interrupciones de la cadena de suministro", doc:"Recuperación ante interrupciones de la cadena de suministro: informe estratégico",
+ home:"← Volver al sitio", theme:"Tema", print:"Imprimir / PDF",
+ eyebrow:"Informe de análisis estratégico", h1:"Qué determina el coste de una interrupción de la cadena de suministro y qué acelera realmente la recuperación",
+ sub:"Un resumen para la toma de decisiones basado en 100.000 incidentes: de dónde vienen las pérdidas, qué acciones mejoran el resultado y dónde invertir primero.",
+ meta:["100.000 incidentes","15 variables","Datos observacionales, USD nominales","noviembre de 2026"],
+ cta1:"Abrir el panel interactivo", cta2:"Ir a las recomendaciones",
+ nav:["Resumen","Causas de la pérdida","Proveedor de respaldo","Respuesta","Cambio de proveedor","Concentración del riesgo","Recomendaciones","Límites","Próximos pasos","Método"],
+ sum:{h:"Resumen ejecutivo", bl:"La conclusión",
+  bt:"Cuánto cuesta una interrupción lo determinan quién resulta afectado y con qué gravedad. Cuánto tarda la recuperación puede reducirse con dos factores que la empresa controla: contar con un proveedor de respaldo y elegir la estrategia de respuesta adecuada. Responder un día antes, por sí solo, no cambia nada medible.",
+  kpis:[{v:"252,3",u:"mil millones de USD",l:"de ingresos perdidos en 100.000 incidentes",hero:1},{v:"−28 %",u:"",l:"de tiempo de recuperación total cuando existe un proveedor de respaldo (unos 25 días)"},{v:"55 %",u:"",l:"de la pérdida total la producen el 10 % de los incidentes más costosos"},{v:"≈ 0",u:"",l:"efecto medible de un día adicional de tiempo de respuesta sobre la recuperación"}],
+  ah:"Qué recomendamos",
+  acts:["Cerrar la brecha de proveedores de respaldo, empezando por los proveedores grandes que aún no lo tienen y siguiendo con los pequeños y medianos.","Adoptar «Proveedor alternativo» como respuesta por defecto siempre que exista un respaldo.","Concentrar la protección en la cima del riesgo: los proveedores grandes aeroespaciales y farmacéuticos.","No financiar la rapidez de respuesta como objetivo aislado; invertir en la estructura."],
+  tr:"Los efectos del proveedor de respaldo y de la estrategia son grandes y sólidos. Sin embargo, los datos son observacionales, no incluyen fechas y resultan inusualmente regulares; conviene validarlos con los registros reales de la empresa antes de asumir compromisos importantes (véase Límites)."},
+ loss:{h:"La pérdida depende de la exposición, no de la respuesta",
+  lead:"El tamaño del proveedor, el sector y la severidad explican en conjunto cerca del 60 % de la variación de la pérdida de ingresos. Solo el tamaño del proveedor aporta 32,0 puntos porcentuales.",
+  c1:"Cuántas veces más se pierde que en el grupo de referencia (ajustado)", g:["Tamaño del proveedor (frente a pequeño)","Sector (frente a bienes de consumo)","Severidad (frente a severidad 1)"],
+  c2:"Contribución única de cada factor a la variación explicada (puntos porcentuales)",
+  note:"Una vez conocidos el tamaño, el sector y la severidad, el tipo de interrupción, la región, el proveedor de respaldo y la estrategia de respuesta no añaden nada a la explicación de cuánto dinero se pierde.",
+  src:"Fuente: regresión sobre el logaritmo de la pérdida de ingresos, con el resto de factores constantes (R² = 0,60). Un proveedor grande pierde 11,66 veces más que uno pequeño; un incidente aeroespacial, 6,14 veces más que uno de bienes de consumo; y uno de severidad 5, 6,58 veces más que uno de severidad 1."},
+ bk:{h:"Un proveedor de respaldo acorta la recuperación un 28 %, pero no reduce la pérdida",
+  lead:"Entre incidentes comparables, los que cuentan con proveedor de respaldo alcanzan la recuperación total un 28,1 % antes (IC del 95 %: de 28,6 % a 27,6 %), unos 25 días por incidente.",
+  c1:"Mediana de días hasta la recuperación total, por tamaño del proveedor", w:"Con proveedor de respaldo", wo:"Sin proveedor de respaldo",
+  th0:"Efecto ajustado de contar con un proveedor de respaldo (mismo tamaño, sector, severidad, nivel y tipo)",
+  th:["Resultado","Efecto de contar con respaldo","IC del 95 %"],
+  rows:[["Tiempo de recuperación total","−28,1 %","de −28,6 % a −27,6 %"],["Tiempo de recuperación parcial","−18,8 %","de −19,6 % a −17,9 %"],["Tiempo hasta iniciar la respuesta","−43,3 %","de −44,0 % a −42,7 %"],["Pérdida de ingresos","−0,1 % (sin efecto medible)","de −1,4 % a +1,2 %"],["Impacto en la producción","0,0 puntos","de −0,13 a +0,13 puntos"]],
+  trap:"Una trampa en las cifras brutas",
+  trapt:"La pérdida media bruta es mayor con proveedor de respaldo (2,85 millones de USD frente a 2,11 millones), lo que sugeriría que el respaldo perjudica. La causa es la composición de los casos: los proveedores grandes pierden mucho más en cualquier incidente y tienen con mucha más frecuencia un respaldo (69,6 % de los grandes, 54,7 % de los medianos y 45,2 % de los pequeños). Al comparar casos equivalentes, el efecto sobre la pérdida es cero.",
+  ins:"El proveedor de respaldo acorta las secuelas, pero no reduce el daño, que ya está determinado por quién resulta afectado y con qué gravedad. La mejora en la recuperación es la misma en todos los tamaños de proveedor."},
+ rs:{h:"La estrategia importa; la rapidez, por sí sola, no",
+  lead:"«Proveedor alternativo» es la estrategia más rápida y «Retraso al cliente» la más lenta. Ninguna estrategia modifica de forma medible la pérdida de ingresos.",
+  c1:"Tiempo de recuperación adicional frente a «Proveedor alternativo» (ajustado)", f:"Recuperación total", p:"Recuperación parcial",
+  s:["Inventario de reserva","Estrategia combinada","Reorientación de la producción","Retraso al cliente"],
+  h2:"¿Importa la rapidez de respuesta?",
+  t1:"En los datos brutos, las respuestas lentas parecen peores: la recuperación total promedia 69,3 días cuando la respuesta empieza al cabo de 1 día y 101,3 días cuando tarda 15 días o más. Pero cuanto más lenta es la respuesta, menos probable es que exista un proveedor de respaldo (68 % de los casos con 1 día, 11 % con 15 días o más). Lo que alarga la recuperación es la ausencia de respaldo, no la demora.",
+  t2:"Tras el ajuste, cada día adicional de tiempo de respuesta cambia la recuperación total en −0,005 % (IC del 95 %: de −0,083 % a +0,074 %): estadísticamente cero.",
+  note:"Es posible que el tiempo de respuesta esté definido de forma inconsistente en los datos (en 5.722 incidentes supera el tiempo de recuperación parcial). Conviene tomar esta conclusión con cautela; incluso en la prueba menos favorable, el efecto se mantiene por debajo del 1 % diario.",
+  nb:"«Estrategia combinada» parece la peor en los promedios brutos solo porque se utiliza en los incidentes más graves (35,2 % de los casos de severidad 5 frente al 5,1 % de los de severidad 1)."},
+ ch:{h:"La severidad y la duración de la recuperación provocan cambios permanentes de proveedor",
+  lead:"El 23,9 % de los incidentes terminó con la sustitución permanente del proveedor. La tasa pasa del 16,4 % con severidad 1 al 40,8 % con severidad 5.",
+  c1:"Porcentaje de incidentes que terminan en un cambio permanente de proveedor, por severidad", sev:"Severidad",
+  b:["Un proveedor de respaldo reduce casi a la mitad la razón de probabilidades de un cambio permanente (odds ratio 0,52): 18,6 % con respaldo frente a 30,5 % sin él.","Cada 30 días adicionales de recuperación aumentan esa razón en un 8,2 %, de modo que el respaldo también la reduce de forma indirecta al acortar la recuperación.","La tasa salta entre la severidad 3 y la 4 (del 23,2 % al 39,6 %) y después se estabiliza.","Es difícil de prever: un modelo alcanza un AUC de solo 0,66 (0,5 equivale al azar), de modo que la decisión depende de factores ausentes en los datos, como los contratos y los costes de cambio."]},
+ rk:{h:"El riesgo se concentra en unos pocos incidentes grandes",
+  lead:"El 10 % de los incidentes más costosos produce el 55,2 % de la pérdida, y el 27,0 % de los incidentes concentra el 80 % de ella (coeficiente de Gini = 0,69).",
+  c1:"Porcentaje acumulado de la pérdida total", xl:"Porcentaje de incidentes, del más costoso al menos costoso", yl:"Porcentaje de la pérdida total",
+  p1:"10 % de incidentes más costosos: 55,2 % de la pérdida", p2:"27,0 % de incidentes: 80 % de la pérdida", eq:"Reparto igualitario",
+  th:["Grupo","Porcentaje de todos los incidentes","Porcentaje del 10 % más costoso","Porcentaje del 1 % más costoso"],
+  rows:[["Proveedores grandes","25,0 %","77,1 %","92,7 %"],["Proveedores medianos","45,2 %","22,2 %","7,3 %"],["Proveedores pequeños","29,9 %","0,8 %","0,0 %"],["Aeroespacial","10,1 %","26,3 %","47,8 %"],["Farmacéutico","15,0 %","24,1 %","25,5 %"],["Automoción","24,9 %","24,5 %","16,4 %"],["Electrónica","29,8 %","20,8 %","9,5 %"],["Bienes de consumo","20,2 %","4,3 %","0,8 %"]],
+  note:"Los proveedores grandes aeroespaciales y farmacéuticos suponen el 6,3 % de los incidentes, pero el 28,5 % de la pérdida total. Los segmentos aeroespaciales son costosos porque cada incidente es muy caro; el segmento de automoción con congestión portuaria lo es porque ocurre con mucha frecuencia.",
+  pr:"¿Se pueden predecir los resultados?",
+  prt:"Los modelos entrenados con el 80 % de los incidentes y evaluados con el 20 % restante reducen el error típico en torno a un 24 % en el tiempo de recuperación (30,8 días frente a 40,7 de una estimación ingenua) y un 28 % en la pérdida de ingresos (1,59 millones de USD frente a 2,21 millones). Sirven para ordenar y planificar, no para pronosticar un incidente concreto."},
+ rc:{h:"Recomendaciones",
+  lead:"Ordenadas según el impacto esperado frente al esfuerzo. La solidez indica hasta qué punto respaldan los datos cada una.",
+  th:["N.º","Recomendación","Evidencia","Solidez","Esfuerzo"],
+  rows:[
+   ["Cerrar la brecha de proveedores de respaldo, empezando por el 30,4 % de los proveedores grandes que no lo tienen y siguiendo con los pequeños (45,2 % cubiertos) y los medianos (54,7 %).","Recuperación total un 28,1 % más rápida (unos 25 días); razón de probabilidades de un cambio permanente casi a la mitad (0,52); la respuesta empieza un 43,3 % antes.","Alta","Alto"],
+   ["Adoptar «Proveedor alternativo» como respuesta por defecto siempre que exista un respaldo; reservar «Retraso al cliente» para cuando no haya mejor opción.","«Retraso al cliente» añade un 28,8 % a la recuperación total y un 84,6 % a la parcial.","Alta para el tiempo de recuperación; sin efecto sobre la pérdida","Bajo"],
+   ["Concentrar la protección en la cima del riesgo: los proveedores grandes aeroespaciales y farmacéuticos y los cinco segmentos más costosos.","El 6,3 % de los incidentes y el 28,5 % de la pérdida; los proveedores grandes reúnen el 92,7 % del 1 % más costoso.","Alta","Medio"],
+   ["Fijar una regla de escalado para los incidentes de severidad 4 y 5 y para las recuperaciones de más de 60 días: revisar al proveedor y preparar la alternativa con antelación.","El cambio permanente alcanza entre el 39,6 % y el 40,8 % con severidad 4 y 5, y entre el 29,6 % y el 34,1 % cuando la recuperación supera los 61 días.","Moderada","Bajo"],
+   ["No financiar la rapidez de respuesta como objetivo aislado; considerarla una buena práctica y no una palanca.","El efecto del tiempo de respuesta sobre la recuperación es estadísticamente cero (−0,005 % por día).","Moderada","—"],
+   ["Mejorar la captura de datos: fechas, coste de cada acción y definiciones precisas del tiempo de respuesta y de la existencia de respaldo en el momento del evento.","Véase Límites.","—","Bajo"]],
+  nt:"Qué no hacer",
+  nb:["No priorizar por región ni por tipo de interrupción; ninguno aporta capacidad explicativa una vez conocidos el tamaño, el sector y la severidad.","No esperar que un proveedor de respaldo reduzca los ingresos perdidos en un incidente concreto. Su valor está en una recuperación más rápida y una relación con el proveedor más estable; conviene sopesar el coste de la cobertura frente a esos beneficios.","No interpretar los promedios brutos por estrategia como una clasificación."]},
+ lm:{h:"Límites y grado de confianza",
+  b:["<b>Asociación, no prueba de causalidad.</b> Los datos son observacionales. Los efectos ajustados son la mejor comparación que permiten los datos, no un experimento.","<b>Los datos son inusualmente regulares.</b> La región del proveedor no tiene ningún efecto y todos los sectores presentan casi el mismo tiempo medio de recuperación (de 75,6 a 76,3 días). El archivo podría ser simulado; conviene validarlo con los registros de la propia empresa antes de tomar decisiones importantes.","<b>Sin fechas.</b> No es posible examinar tendencias ni estacionalidad, ni comprobar si el proveedor de respaldo existía antes del evento.","<b>Tiempo de respuesta ambiguo.</b> En 5.722 incidentes (5,7 %) supera el tiempo de recuperación parcial. En cualquier caso, su efecto se mantiene por debajo del 1 % por día.","<b>Significancia no es importancia.</b> Con 100.000 incidentes, hasta los efectos más pequeños resultan estadísticamente significativos; hay que juzgar por el tamaño del efecto.","<b>Capacidad predictiva limitada.</b> Los modelos explican el 46 % de la variación del tiempo de recuperación y el 60 % de la de la pérdida; una parte importante queda sin explicar."]},
+ nx:{h:"Próximos pasos", th:["Cuándo","Paso","Finalidad"],
+  rows:[["Primeros 30 días","Confirmar las definiciones con el responsable de los datos: tiempo de respuesta, escala de severidad y si el proveedor de respaldo existía antes del evento.","Eliminar las principales ambigüedades."],["Primeros 30 días","Repetir este análisis con los registros de la propia empresa, incluidas las fechas.","Confirmar que las cifras se sostienen fuera de este archivo."],["De 1 a 3 meses","Construir un modelo de coste-beneficio de los proveedores de respaldo: coste de homologar uno frente a unos 25 días de recuperación ahorrados y una menor probabilidad de cambio forzoso de proveedor.","Decidir dónde compensa primero ampliar la cobertura."],["De 3 a 6 meses","Desplegar la cobertura de respaldo por fases y compararla con los proveedores aún no cubiertos.","Convertir una asociación en un efecto medido."],["De forma continua","Actualizar el panel cada mes y seguir la cobertura de respaldo, el tiempo de recuperación por estrategia y la concentración de la pérdida.","Mantener las evidencias al día."]]},
+ mt:{h:"Método y calidad de los datos",
+  p:["Todas las cifras de este informe y del panel interactivo proceden de un único script de análisis ejecutado sobre el mismo archivo depurado, por lo que los números coinciden en todas partes. La pérdida de ingresos y los días de recuperación se analizaron en escala logarítmica porque la pérdida presenta una fuerte asimetría a la derecha (media de 2,52 millones de USD frente a una mediana de 0,88 millones). Los efectos se estimaron con regresión múltiple y errores estándar robustos; las probabilidades, con regresión logística; la concentración, con la curva de Pareto, el coeficiente de Gini y la elevación (lift); y la capacidad predictiva, con árboles de gradiente potenciado evaluados sobre el 20 % de los incidentes reservado.",
+   "<b>Calidad de los datos.</b> No hay valores faltantes, filas ni identificadores duplicados, y las etiquetas son coherentes. No se eliminó nada. Se marcaron y conservaron: 738 incidentes con una pérdida exactamente en el mínimo de 10.000 USD, 8 incidentes con un impacto del 100 % en la producción, 5.722 incidentes cuyo tiempo de respuesta supera el de recuperación parcial y 10.620 valores atípicos estadísticos en la pérdida, que son reales. Las pruebas de sensibilidad sin el primer y el tercer grupo no alteran las conclusiones."],
+  rg:["<b>Ajustado</b> significa tras mantener constantes los demás factores: la comparación justa.","<b>Grupo de referencia:</b> cada multiplicador es relativo a un grupo (pequeño, bienes de consumo, severidad 1, proveedor alternativo).","<b>IC del 95 % (intervalo de confianza):</b> si incluye el cero (o el 1 en las razones), el efecto no se distingue de la ausencia de efecto."]},
+ ft:"Elaborado a partir del archivo supply_chain_disruption_recovery.csv (100.000 incidentes, 15 columnas). Datos observacionales; importes en dólares estadounidenses nominales. Formato numérico: coma decimal y punto como separador de millares; el signo de porcentaje se escribe separado por un espacio."
+}
+};
+
+/* ---------------- helpers ---------------- */
+var $ = function(s,r){return (r||document).querySelector(s)};
+var LANG = "en";
+function nf(x,d){var s=Number(x).toFixed(d==null?1:d); if(LANG==="es") s=s.replace(".",","); return s}
+function pct(x,d){var s=nf(x,d); return s+(LANG==="es"?" %":"%")}
+function esc(s){return String(s)}
+function iso(html){ // isolate numbers so RTL text never reorders signs/percent
+  if(LANG!=="ar") return html;
+  return html.replace(/(^|[^\w<\/="'.#])([−+]?\d[\d.,]*(?:\s?%)?)/g,function(m,a,b){return a+'<bdi dir="ltr">'+b+'</bdi>'});
+}
+function I(s){return iso(esc(s))}
+
+/* ---------------- chart builders ---------------- */
+function barRows(items,max,cls){
+  return items.map(function(it){
+    var w=Math.max(0.5,it.v/max*100);
+    return '<div class="row"><div class="lb">'+it.l+'</div><div class="track"><div class="fill '+(it.c||cls||'')+'" style="width:calc('+w.toFixed(2)+'% - 56px)" title="'+it.l+': '+it.t+'"></div><span class="val">'+it.t+'</span></div></div>';
+  }).join('');
+}
+function mult(v){return nf(v,2)+"×"}
+function chartLoss(t){
+  var A=[[11.66,"Large"],[3.31,"Medium"]];
+  var sz=LANG==="ar"?["كبير","متوسط"]:LANG==="es"?["Grande","Mediano"]:["Large","Medium"];
+  var ind=LANG==="ar"?["الطيران والفضاء","الأدوية","السيارات","الإلكترونيات"]:LANG==="es"?["Aeroespacial","Farmacéutico","Automoción","Electrónica"]:["Aerospace","Pharmaceuticals","Automotive","Electronics"];
+  var sev=LANG==="ar"?["الشدّة 2","الشدّة 3","الشدّة 4","الشدّة 5"]:LANG==="es"?["Severidad 2","Severidad 3","Severidad 4","Severidad 5"]:["Severity 2","Severity 3","Severity 4","Severity 5"];
+  var G=[[sz,[11.66,3.31]],[ind,[6.14,3.62,2.47,1.87]],[sev,[2.39,3.90,5.22,6.58]]];
+  var h='';
+  G.forEach(function(g,i){
+    h+='<div class="grp">'+t.g[i]+'</div>'+barRows(g[0].map(function(l,j){return {l:l,v:g[1][j],t:mult(g[1][j])}}),12);
+  });
+  return h;
+}
+function chartContrib(){
+  var L=LANG==="ar"?["حجم المورّد","القطاع","الشدّة","مستوى المورّد","نوع التعطّل","منطقة المورّد","مورّد احتياطي","استراتيجية الاستجابة"]
+       :LANG==="es"?["Tamaño del proveedor","Sector","Severidad","Nivel del proveedor","Tipo de interrupción","Región del proveedor","Proveedor de respaldo","Estrategia de respuesta"]
+       :["Supplier size","Industry","Severity","Supplier tier","Disruption type","Supplier region","Backup supplier","Response strategy"];
+  var V=[32.0,11.3,10.6,1.9,0,0,0,0];
+  return barRows(L.map(function(l,i){return {l:l,v:V[i],t:nf(V[i],1)}}),34);
+}
+function chartBackup(t){
+  var S=LANG==="ar"?["كبير","متوسط","صغير"]:LANG==="es"?["Grande","Mediano","Pequeño"]:["Large","Medium","Small"];
+  var W=[52,53,52], O=[74,74,73], h='<div class="legend"><span><i></i>'+t.w+'</span><span><i class="b2"></i>'+t.wo+'</span></div>';
+  S.forEach(function(s,i){
+    h+='<div class="row"><div class="lb">'+s+'</div><div class="pair">'
+      +'<div class="track"><div class="fill" style="width:calc('+(W[i]/80*100)+'% - 60px)" title="'+t.w+': '+W[i]+'"></div><span class="val">'+W[i]+'</span></div>'
+      +'<div class="track"><div class="fill b2" style="width:calc('+(O[i]/80*100)+'% - 60px)" title="'+t.wo+': '+O[i]+'"></div><span class="val">'+O[i]+'</span></div></div></div>';
+  });
+  return h;
+}
+function chartStrategy(t){
+  var F=[5.9,8.6,15.7,28.8], P=[13.1,21.3,42.1,84.6];
+  var h='<div class="legend"><span><i></i>'+t.f+'</span><span><i class="b2"></i>'+t.p+'</span></div>';
+  t.s.forEach(function(s,i){
+    h+='<div class="row"><div class="lb">'+s+'</div><div class="pair">'
+     +'<div class="track"><div class="fill" style="width:calc('+(F[i]/90*100)+'% - 70px)" title="'+t.f+': +'+pct(F[i],1)+'"></div><span class="val">+'+pct(F[i],1)+'</span></div>'
+     +'<div class="track"><div class="fill b2" style="width:calc('+(P[i]/90*100)+'% - 70px)" title="'+t.p+': +'+pct(P[i],1)+'"></div><span class="val">+'+pct(P[i],1)+'</span></div></div></div>';
+  });
+  return h;
+}
+function chartSeverity(t){
+  var V=[16.4,20.2,23.2,39.6,40.8], h='<div class="cols">';
+  V.forEach(function(v,i){
+    h+='<div class="col"><span class="cv">'+pct(v,1)+'</span><div class="bar2'+(i>=3?' hi':'')+'" style="height:'+(v/45*100)+'%" title="'+t.sev+' '+(i+1)+': '+pct(v,1)+'"></div></div>';
+  });
+  h+='</div><div class="collab">';
+  V.forEach(function(v,i){h+='<div>'+t.sev+' '+(i+1)+'</div>'});
+  return h+'</div>';
+}
+function chartPareto(t){
+  var W=640,H=340,L=56,R=16,Tp=18,B=48, pw=W-L-R, ph=H-Tp-B;
+  var X=function(x){return L+x*pw}, Y=function(y){return Tp+(1-y)*ph};
+  var d=PARETO.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join(' ');
+  var area=d+' L'+X(1)+' '+Y(0)+' L'+X(0)+' '+Y(0)+' Z';
+  var g='',k;
+  for(k=0;k<=5;k++){var v=k/5; g+='<line class="grid" x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(v)+'" y2="'+Y(v)+'"/><text x="'+(L-8)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+nf(v*100,0)+(LANG==="es"?" %":"%")+'</text><text x="'+X(v)+'" y="'+(H-B+18)+'" text-anchor="middle">'+nf(v*100,0)+(LANG==="es"?" %":"%")+'</text>';}
+  var p1=[0.10,0.5516], p2=[0.27,0.80];
+  return '<div class="svgwrap"><svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="'+t.c1+'">'+g
+   +'<line class="axis" x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(0)+'" y2="'+Y(0)+'"/>'
+   +'<line class="diag" x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(1)+'" y2="'+Y(1)+'" stroke-dasharray="0"/>'
+   +'<path class="area" d="'+area+'"/><path class="curve" d="'+d+'"/>'
+   +'<circle class="dot" cx="'+X(p1[0])+'" cy="'+Y(p1[1])+'" r="5"/><circle class="dot2" cx="'+X(p2[0])+'" cy="'+Y(p2[1])+'" r="5"/>'
+   +'<text class="lab" x="'+(X(p1[0])+12)+'" y="'+(Y(p1[1])+28)+'">'+t.p1+'</text>'
+   +'<text class="lab" x="'+(X(p2[0])+12)+'" y="'+(Y(p2[1])+22)+'">'+t.p2+'</text>'
+   +'<text x="'+(X(0.62))+'" y="'+(Y(0.62)+18)+'">'+t.eq+'</text>'
+   +'<text x="'+(L+pw/2)+'" y="'+(H-6)+'" text-anchor="middle">'+t.xl+'</text>'
+   +'</svg></div>';
+}
+
+/* ---------------- tables ---------------- */
+function table(th,rows,opts){
+  opts=opts||{};
+  var h='<div class="tw"><table><thead><tr>'+th.map(function(x,i){return '<th'+(opts.num&&opts.num.indexOf(i)>-1?' class="n"':'')+'>'+I(x)+'</th>'}).join('')+'</tr></thead><tbody>';
+  rows.forEach(function(r){
+    h+='<tr>'+r.map(function(c,i){return '<td'+(opts.num&&opts.num.indexOf(i)>-1?' class="n"':'')+'>'+(opts.chip&&opts.chip.indexOf(i)>-1?'<span class="chip'+(i===3&&(c.indexOf('High')===0||c.indexOf('Alta')===0||c.indexOf('عالية')===0)?' hi':'')+'">'+I(c)+'</span>':I(c))+'</td>'}).join('')+'</tr>';
+  });
+  return h+'</tbody></table></div>';
+}
+
+/* ---------------- render ---------------- */
+function render(){
+  var t=T[LANG], h='';
+  document.documentElement.lang=t.lang; document.documentElement.dir=t.dir;
+  document.title=t.doc;
+  var md=document.querySelector('meta[name=description]'); if(md) md.setAttribute('content',t.sub);
+  var ids=["summary","loss","backup","response","change","risk","recs","limits","next","method"];
+  h+='<header class="hero"><div class="eyebrow">'+t.eyebrow+'</div><h1>'+I(t.h1)+'</h1><p class="sub">'+I(t.sub)+'</p>'
+    +'<div class="meta">'+t.meta.map(function(m){return '<span>'+I(m)+'</span>'}).join('')+'</div>'
+    +'<div class="cta"><a class="btn" href="'+DASHBOARD_URL+'?lang='+LANG+'">'+t.cta1+'</a><a class="btn ghost" href="#recs">'+t.cta2+'</a></div></header>';
+  h+='<nav class="nav" aria-label="Sections">'+ids.map(function(id,i){return '<a href="#'+id+'" data-id="'+id+'">'+t.nav[i]+'</a>'}).join('')+'</nav>';
+
+  // summary
+  var s=t.sum;
+  h+='<section id="summary"><div class="card"><h2><span class="num">1</span>'+I(s.h)+'</h2>'
+   +'<div class="answer"><h3>'+s.bl+'</h3><p>'+I(s.bt)+'</p></div>'
+   +'<div class="kpis">'+s.kpis.map(function(k){return '<div class="kpi'+(k.hero?' hero':'')+'"><span class="v">'+k.v+'</span>'+(k.u?'<span class="u">'+k.u+'</span>':'')+'<span class="l">'+I(k.l)+'</span></div>'}).join('')+'</div>'
+   +'<h3>'+s.ah+'</h3><ol class="actions">'+s.acts.map(function(a,i){return '<li><span class="n">'+(i+1)+'</span><span>'+I(a)+'</span></li>'}).join('')+'</ol>'
+   +'<div class="ok"><b>'+(LANG==="ar"?"حدود الثقة":LANG==="es"?"Grado de confianza":"How far to trust this")+'</b>'+I(s.tr)+'</div></div></section>';
+
+  // loss
+  var l=t.loss;
+  h+='<section id="loss"><div class="card"><h2><span class="num">2</span>'+I(l.h)+'</h2><p class="lead">'+I(l.lead)+'</p>'
+   +'<div class="two"><div class="chart"><div class="ctitle">'+l.c1+'</div>'+chartLoss(l)+'</div><div class="chart"><div class="ctitle">'+l.c2+'</div>'+chartContrib()+'</div></div>'
+   +'<div class="ok"><b></b>'+I(l.note)+'</div><p class="small" style="margin-top:12px">'+I(l.src)+'</p></div></section>';
+
+  // backup
+  var b=t.bk;
+  h+='<section id="backup"><div class="card"><h2><span class="num">3</span>'+I(b.h)+'</h2><p class="lead">'+I(b.lead)+'</p>'
+   +'<div class="chart"><div class="ctitle">'+b.c1+'</div>'+chartBackup(b)+'</div><h3>'+b.th0+'</h3>'+table(b.th,b.rows,{num:[1,2]})
+   +'<div class="note"><b>'+b.trap+'</b>'+I(b.trapt)+'</div><p style="margin-top:14px">'+I(b.ins)+'</p></div></section>';
+
+  // response
+  var r=t.rs;
+  h+='<section id="response"><div class="card"><h2><span class="num">4</span>'+I(r.h)+'</h2><p class="lead">'+I(r.lead)+'</p>'
+   +'<div class="chart"><div class="ctitle">'+r.c1+'</div>'+chartStrategy(r)+'</div><p class="small">'+I(r.nb)+'</p>'
+   +'<h3>'+r.h2+'</h3><p>'+I(r.t1)+'</p><p><b>'+I(r.t2)+'</b></p><div class="note"><b></b>'+I(r.note)+'</div></div></section>';
+
+  // change
+  var c=t.ch;
+  h+='<section id="change"><div class="card"><h2><span class="num">5</span>'+I(c.h)+'</h2><p class="lead">'+I(c.lead)+'</p>'
+   +'<div class="two"><div class="chart"><div class="ctitle">'+c.c1+'</div>'+chartSeverity(c)+'</div><ul class="clean">'+c.b.map(function(x){return '<li>'+I(x)+'</li>'}).join('')+'</ul></div></div></section>';
+
+  // risk
+  var k=t.rk;
+  h+='<section id="risk"><div class="card"><h2><span class="num">6</span>'+I(k.h)+'</h2><p class="lead">'+I(k.lead)+'</p>'
+   +'<div class="chart"><div class="ctitle">'+k.c1+'</div>'+chartPareto(k)+'</div>'
+   +table(k.th,k.rows,{num:[1,2,3]})
+   +'<div class="ok"><b></b>'+I(k.note)+'</div><h3>'+k.pr+'</h3><p>'+I(k.prt)+'</p></div></section>';
+
+  // recs
+  var q=t.rc;
+  h+='<section id="recs"><div class="card"><h2><span class="num">7</span>'+I(q.h)+'</h2><p class="lead">'+I(q.lead)+'</p>'
+   +table(q.th,q.rows.map(function(r2,i){return [String(i+1)].concat(r2)}),{chip:[3,4]})
+   +'<h3>'+q.nt+'</h3><ul class="clean">'+q.nb.map(function(x){return '<li>'+I(x)+'</li>'}).join('')+'</ul></div></section>';
+
+  // limits
+  var m=t.lm;
+  h+='<section id="limits"><div class="card"><h2><span class="num">8</span>'+I(m.h)+'</h2><ul class="clean">'+m.b.map(function(x){return '<li>'+I(x)+'</li>'}).join('')+'</ul></div></section>';
+
+  // next
+  var n=t.nx;
+  h+='<section id="next"><div class="card"><h2><span class="num">9</span>'+I(n.h)+'</h2><ol class="steps">'+n.rows.map(function(r3){return '<li><span class="w">'+I(r3[0])+'</span><span><b>'+I(r3[1])+'</b><br><span class="muted">'+I(r3[2])+'</span></span></li>'}).join('')+'</ol></div></section>';
+
+  // method
+  var e=t.mt;
+  h+='<section id="method"><div class="card"><h2><span class="num">10</span>'+I(e.h)+'</h2>'+e.p.map(function(x){return '<p>'+I(x)+'</p>'}).join('')+'<ul class="clean">'+e.rg.map(function(x){return '<li>'+I(x)+'</li>'}).join('')+'</ul></div></section>';
+
+  h+='<footer><p>'+I(t.ft)+'</p></footer>';
+  $('#app').innerHTML=h;
+
+  // chrome
+  var hl=$('#homeLink'); hl.textContent=t.home; hl.href=SITE_HOME+(SITE_HOME.indexOf('?')<0?'?':'&')+'lang='+LANG;
+  $('#themeBtn').textContent=t.theme; $('#printBtn').textContent=t.print;
+  document.querySelectorAll('.seg button').forEach(function(bt){bt.setAttribute('aria-pressed',bt.getAttribute('data-l')===LANG)});
+  observe();
+}
+
+/* ---------------- behavior ---------------- */
+var io=null;
+function observe(){
+  if(io) io.disconnect();
+  if(!('IntersectionObserver' in window)) return;
+  io=new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){
+      document.querySelectorAll('.nav a').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-id')===en.target.id)});
+    }});
+  },{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+}
+function setLang(l,persist){
+  LANG=T[l]?l:"en"; render();
+  if(persist){ try{localStorage.setItem('scr-lang',LANG)}catch(e){} try{history.replaceState(null,'',location.pathname+location.search.replace(/([?&])lang=[^&]*&?/,'$1').replace(/[?&]$/,'')+(location.hash||''))}catch(e){} }
+}
+function initLang(){
+  var q=(location.search.match(/[?&]lang=(ar|en|es)/)||[])[1], st=null;
+  try{st=localStorage.getItem('scr-lang')}catch(e){}
+  var nav=(navigator.language||'en').slice(0,2);
+  return q||(T[st]?st:null)||(T[nav]?nav:'en');
+}
+document.querySelectorAll('.seg button').forEach(function(bt){bt.addEventListener('click',function(){setLang(bt.getAttribute('data-l'),true)})});
+$('#themeBtn').addEventListener('click',function(){
+  var r=document.documentElement, cur=r.getAttribute('data-theme');
+  var dark=cur?cur==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var nt=dark?'light':'dark';
+  if(window.GuruTheme)GuruTheme.persist(nt);else r.setAttribute('data-theme',nt);
+});
+$('#printBtn').addEventListener('click',function(){window.print()});
+LANG=initLang(); render();
+</script>
+<script>
+/* Guru site bridge: when embedded in the project page it syncs language/theme, reports its height,
+   routes in-page links to the host page and handles print. Standalone it does nothing. */
+(function(){
+  if(window.parent===window){
+    document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".seg button[data-l]");
+      if(b){try{localStorage.setItem("guru-lang",b.getAttribute("data-l"))}catch(_e){}}});
+    return;
+  }
+  var tm=/[?&]theme=(dark|light)/.exec(location.search);if(tm)document.documentElement.setAttribute("data-theme",tm[1]);
+  var st=document.createElement("style");
+  st.textContent=".bar{display:none!important} html{scroll-padding-top:0} body{padding-block:0 8px}";
+  document.head.appendChild(st);
+  addEventListener("message",function(e){var d=e.data;if(!d)return;
+    if(d.type==="guru-print"){window.print();return}
+    if(d.type!=="guru-sync")return;
+    if(d.theme==="dark"||d.theme==="light")document.documentElement.setAttribute("data-theme",d.theme);
+    if(d.lang){var b=document.querySelector('.seg button[data-l="'+d.lang+'"]');if(b&&b.getAttribute("aria-pressed")!=="true")b.click()}});
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;
+    var h=a.getAttribute("href")||"";
+    if(h.charAt(0)==="#"&&h.length>1){var t=document.getElementById(h.slice(1));
+      if(t){e.preventDefault();parent.postMessage({type:"guru-goto",y:Math.round(t.getBoundingClientRect().top+window.scrollY)},"*")}}
+    else if(/(^|\/)dashboard\.html(\?.*)?$/.test(h)){e.preventDefault();parent.postMessage({type:"guru-open",id:"dashboard"},"*")}
+  });
+  function h(){parent.postMessage({type:"guru-height",h:Math.ceil(document.body.getBoundingClientRect().height)},"*")}
+  if(window.ResizeObserver)new ResizeObserver(h).observe(document.body);
+  addEventListener("load",h);
+  parent.postMessage({type:"guru-ready"},"*");
+})();
+</script>
+</body>
+</html>
