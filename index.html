@@ -4,14 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guru for Smart Solutions</title>
-<meta name="description" content="Guru for Smart Solutions â€” smart tools, data analytics projects and an academy, in one place.">
+<meta name="description" content="Guru for Smart Solutions — smart tools, data analytics projects and an academy, in one place.">
 <link rel="icon" href="assets/logo.png">
 <script src="assets/guru-theme.js?v=1"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=25">
-<style>.ph.ph-img{padding:0;overflow:hidden;aspect-ratio:1/1;height:auto;min-height:0;border:0;background:none}.ph.ph-img img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}</style>
+<link rel="stylesheet" href="styles.css?v=26">
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -34,13 +33,13 @@
       <div class="lang" id="lang">
         <button type="button" class="lang-btn" id="lang-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="lang-menu" aria-label="Language">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 4 5.7 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.7-4-9s1.4-6.4 4-9z"/></svg>
-          <span id="lang-cur" dir="auto">Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</span>
+          <span id="lang-cur" dir="auto">العربية</span>
           <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <ul class="lang-menu" id="lang-menu" role="menu" hidden>
-          <li role="none"><button type="button" role="menuitemradio" data-lang="ar" aria-checked="true"><b>AR</b><span>Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</span><i class="tick">âœ“</i></button></li>
-          <li role="none"><button type="button" role="menuitemradio" data-lang="en" aria-checked="false"><b>EN</b><span>English</span><i class="tick">âœ“</i></button></li>
-          <li role="none"><button type="button" role="menuitemradio" data-lang="es" aria-checked="false"><b>ES</b><span>EspaÃ±ol</span><i class="tick">âœ“</i></button></li>
+          <li role="none"><button type="button" role="menuitemradio" data-lang="ar" aria-checked="true"><b>AR</b><span>العربية</span><i class="tick">✓</i></button></li>
+          <li role="none"><button type="button" role="menuitemradio" data-lang="en" aria-checked="false"><b>EN</b><span>English</span><i class="tick">✓</i></button></li>
+          <li role="none"><button type="button" role="menuitemradio" data-lang="es" aria-checked="false"><b>ES</b><span>Español</span><i class="tick">✓</i></button></li>
         </ul>
       </div>
       <button type="button" class="icon-btn" id="theme" aria-label="Toggle theme">
@@ -96,10 +95,10 @@
     <header class="sec-head"><p class="eyebrow" data-i18n="navTools"></p><h2 data-i18n="toolsH"></h2><p data-i18n="toolsP"></p></header>
     <div class="grid3">
       <article class="card">
-        <div class="ph ph-img"><img src="assets/mr-josef.jpg" alt="Mr. Josef" width="1024" height="1024" loading="lazy"></div>
-        <span class="tag tag-live" data-i18n="liveNow"></span>
+        <div class="ph" role="img" aria-label="Image placeholder"><span data-i18n="soonImg"></span></div>
+        <span class="tag" data-i18n="soon"></span>
         <h3 data-i18n="t1"></h3><p data-i18n="t1p"></p>
-        <a class="link" href="https://mr-josef-for-social-media.vercel.app/ar" data-app-link="https://mr-josef-for-social-media.vercel.app" target="_blank" rel="noopener" data-i18n="mjCta"></a>
+        <a class="link" href="#contact" data-i18n="demo"></a>
       </article>
       <article class="card">
         <div class="ph" role="img" aria-label="Image placeholder"><span data-i18n="soonImg"></span></div>
@@ -121,7 +120,7 @@
 <section class="section alt" id="data">
   <div class="wrap">
     <header class="sec-head"><p class="eyebrow" data-i18n="navData"></p><h2 data-i18n="dataH"></h2><p data-i18n="dataP"></p></header>
-    <article class="case" id="case">
+    <article class="case" id="case" data-case="supply">
       <div class="case-stage">
         <div class="case-tabs" role="tablist" aria-label="" data-i18n-aria="caseTabsAria" style="--i:0">
           <span class="case-ind" aria-hidden="true"></span>
@@ -161,6 +160,71 @@
           <a class="btn btn-gold" href="#contact" data-i18n="caseCta"></a>
           <p class="case-note" data-i18n="caseNote"></p>
         </div>
+      </div>
+    </article>
+
+    <article class="case case-amazon" id="case-amazon" data-case="amazon">
+      <div class="case-stage">
+        <div class="case-tabs" role="tablist" aria-label="" data-i18n-aria="caseTabsAria" style="--i:0">
+          <span class="case-ind" aria-hidden="true"></span>
+          <button class="case-tab" role="tab" id="tab-am-dash" aria-controls="slide-am-dash" aria-selected="true" type="button" data-i18n="tabDash"></button>
+          <button class="case-tab" role="tab" id="tab-am-rep" aria-controls="slide-am-rep" aria-selected="false" tabindex="-1" type="button" data-i18n="tabRep"></button>
+        </div>
+        <div class="case-frame">
+          <div class="case-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="case-label"><span class="cl cl-0" data-i18n="tabDash"></span><span class="cl cl-1" data-i18n="tabRep"></span></span></div>
+          <div class="case-viewport" tabindex="0" role="group" aria-roledescription="carousel" data-i18n-aria="caseAria">
+            <div class="case-track">
+              <figure class="case-slide on" id="slide-am-dash" role="tabpanel" aria-labelledby="tab-am-dash"><img src="amazon-orders/dashboard.webp" data-i18n-alt="amAltDash" alt="" width="2400" height="1959" draggable="false"></figure>
+              <figure class="case-slide" id="slide-am-rep" role="tabpanel" aria-labelledby="tab-am-rep" aria-hidden="true"><img src="amazon-orders/report.webp" data-i18n-alt="amAltRep" alt="" width="2400" height="1350" draggable="false" loading="lazy"></figure>
+            </div>
+            <button class="case-nav prev" type="button" data-i18n-aria="casePrev" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            <button class="case-nav next" type="button" data-i18n-aria="caseNext"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            <span class="case-shine" aria-hidden="true"></span>
+          </div>
+        </div>
+        <p class="am-open">
+          <a href="amazon-orders/dashboard.webp" target="_blank" rel="noopener" data-i18n="amOpenDash"></a>
+          <a href="amazon-orders/report.webp" target="_blank" rel="noopener" data-i18n="amOpenRep"></a>
+        </p>
+      </div>
+      <div class="case-body">
+        <div class="case-head" data-rv style="--d:0"><span class="tag" data-i18n="amTag"></span></div>
+        <h3 data-rv style="--d:1" data-i18n="amTitle"></h3>
+        <p class="case-intro" data-rv style="--d:2" data-i18n="amIntro" data-i18n-num></p>
+        <ul class="case-stats" data-rv style="--d:3">
+          <li><b class="cs-n" data-stat="0" dir="auto"></b><span data-i18n="amStat1" data-i18n-num></span></li>
+          <li><b class="cs-n" data-stat="1" dir="auto"></b><span data-i18n="amStat2" data-i18n-num></span></li>
+          <li><b class="cs-n" data-stat="2" dir="auto"></b><span data-i18n="amStat3" data-i18n-num></span></li>
+        </ul>
+        <div class="am-prev" data-rv style="--d:4" role="list" aria-label="" data-i18n-aria="amPrevAria">
+          <div class="am-sl" role="listitem"><span class="am-sn"><bdi dir="ltr">1 / 6</bdi></span><b data-i18n="amS1t"></b><p data-i18n="amS1" data-i18n-num></p></div>
+          <div class="am-sl" role="listitem"><span class="am-sn"><bdi dir="ltr">2 / 6</bdi></span><b data-i18n="amS2t"></b><p data-i18n="amS2" data-i18n-num></p></div>
+          <div class="am-sl" role="listitem"><span class="am-sn"><bdi dir="ltr">3 / 6</bdi></span><b data-i18n="amS3t"></b><p data-i18n="amS3" data-i18n-num></p></div>
+          <div class="am-sl" role="listitem"><span class="am-sn"><bdi dir="ltr">4 / 6</bdi></span><b data-i18n="amS4t"></b><p data-i18n="amS4" data-i18n-num></p></div>
+          <div class="am-sl" role="listitem"><span class="am-sn"><bdi dir="ltr">5 / 6</bdi></span><b data-i18n="amS5t"></b><p data-i18n="amS5" data-i18n-num></p></div>
+          <div class="am-sl" role="listitem"><span class="am-sn"><bdi dir="ltr">6 / 6</bdi></span><b data-i18n="amS6t"></b><p data-i18n="amS6" data-i18n-num></p></div>
+        </div>
+        <h4 class="case-qh" data-rv style="--d:5" data-i18n="amQaH"></h4>
+        <ol class="qa">
+          <li data-rv style="--d:6"><span class="qa-n">1</span><div><b data-i18n="amQ1"></b><p data-i18n="amA1" data-i18n-num></p></div></li>
+          <li data-rv style="--d:7"><span class="qa-n">2</span><div><b data-i18n="amQ2"></b><p data-i18n="amA2" data-i18n-num></p></div></li>
+          <li data-rv style="--d:8"><span class="qa-n">3</span><div><b data-i18n="amQ3"></b><p data-i18n="amA3" data-i18n-num></p></div></li>
+          <li data-rv style="--d:9"><span class="qa-n">4</span><div><b data-i18n="amQ4"></b><p data-i18n="amA4" data-i18n-num></p></div></li>
+        </ol>
+        <div class="case-cta" data-rv style="--d:10">
+          <a class="btn btn-gold" href="#contact" data-i18n="amCta"></a>
+        </div>
+        <p class="case-note am-src" data-rv style="--d:11" data-i18n="amNote"></p>
+        <details class="am-cav" data-rv style="--d:12">
+          <summary data-i18n="amCavT"></summary>
+          <ul>
+          <li data-i18n="amCav1" data-i18n-num></li>
+          <li data-i18n="amCav2" data-i18n-num></li>
+          <li data-i18n="amCav3" data-i18n-num></li>
+          <li data-i18n="amCav4" data-i18n-num></li>
+          <li data-i18n="amCav5" data-i18n-num></li>
+          </ul>
+        </details>
       </div>
     </article>
   </div>
@@ -252,7 +316,7 @@
   <div class="wrap">
     <header class="sec-head"><p class="eyebrow" data-i18n="navReviews"></p><h2 data-i18n="revH"></h2></header>
     <div class="reviews-empty">
-      <div class="stars" aria-hidden="true">â˜…â˜…â˜…â˜…â˜…</div>
+      <div class="stars" aria-hidden="true">★★★★★</div>
       <h3 data-i18n="revEmpty"></h3>
       <p data-i18n="revEmptyP"></p>
       <a class="btn btn-gold" href="#contact" data-i18n="revCta"></a>
@@ -278,7 +342,7 @@
 <footer class="site-footer">
   <div class="wrap foot-pay" id="foot-pay"></div>
   <div class="wrap foot">
-    <span dir="ltr">Â© <span id="yr"></span> Guru for Smart Solutions</span>
+    <span dir="ltr">© <span id="yr"></span> Guru for Smart Solutions</span>
     <span data-i18n="footNote"></span>
   </div>
 </footer>

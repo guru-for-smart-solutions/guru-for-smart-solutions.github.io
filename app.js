@@ -17,13 +17,12 @@
       hubAria:'خدمات Guru الأربع', hub1:'أدوات برمجية جاهزة', hub1s:'تعمل من أول يوم', hub2:'أتمتة المهام', hub2s:'توفّر ساعات من العمل اليدوي', hub3:'لوحات بيانات تفاعلية', hub3s:'قرارات أوضح من بياناتك', hub4:'دورات تعليمية', hub4s:'في مجال حلول الأعمال',
       liveTitle:'لوحة تحكم توضيحية', sample:'بيانات توضيحية',
       k1:'الإيرادات', k2:'الطلبات', k3:'النمو',
-      toolsH:'أدوات ذكية تعمل من أول نقرة', toolsP:'أدوات تستخدمها مباشرة من تصميم وتطوير وكالة Guru: نشر تلقائي، إدارة علاقات العملاء، وتخطيط موارد المؤسسات وغيرها.',
-      soon:'قيد التحديثات حاليًا', soonImg:'قيد التحديثات حاليًا', demo:'اطلب عرضًا تجريبيًا ←',
-      liveNow:'متاح الآن', mjCta:'افتح الأداة ←',
-      t1:'Mr. Josef', t1p:'أداة تجدول منشوراتك وتنشرها لك تلقائيًا على قنواتك في الموعد الذي تحدده، من مكان واحد، دون الحاجة إلى فتح كل منصة على حدة.',
+      toolsH:'أدوات ذكية تعمل من أول نقرة', toolsP:'أدوات SaaS من تصميم وتطوير Guru: نشر تلقائي، إدارة علاقات العملاء، وتخطيط موارد المؤسسات.',
+      soon:'قريبًا', soonImg:'صورة قريبًا', demo:'اطلب عرضًا تجريبيًا ←',
+      t1:'النشر التلقائي بنقرة واحدة', t1p:'انشر مشروعك على الإنترنت دون تعقيد ولا أوامر برمجية.',
       t2:'نظام CRM', t2p:'تابع عملاءك وصفقاتك ومحادثاتك من لوحة واحدة.',
       t3:'نظام ERP', t3p:'أدر المشتريات والمخزون والمشاريع والتكاليف في نظام متكامل.',
-      dataH:'مثال حقيقي لما ستحصل عليه', dataP:'لوحة تفاعلية وتقرير تحليلي كاملان، بُنيا من 100,000 سجل. هكذا يبدو المنتج النهائي الذي نسلّمه لك.',
+      dataH:"أمثلة حقيقية لما ستحصل عليه", dataP:"لوحات تفاعلية وتقارير تحليلية كاملة، بُنيت من بيانات حقيقية. هكذا يبدو المنتج النهائي الذي نسلّمه لك.",
       d1t:'التعافي من اضطرابات سلاسل الإمداد', d1p:'تحليل 100,000 حادثة اضطراب: الخسارة بالدولار وزمن التعافي بالأيام، بلوحة تفاعلية.', live:'مثال حقيقي', openProj:'افتح المشروع ←',
       d2t:'تقارير مالية ذكية', d2p:'ملخص تنفيذي جاهز لكل لوحة بعد مراجعة بشرية.',
       d3t:'ذكاء الأعمال للمقاولات', d3p:'متابعة التكاليف والمشاريع والانحرافات.',
@@ -39,7 +38,50 @@
       revEmpty:'كن أول من يشاركنا تجربته', revEmptyP:'نعرض هنا آراء عملائنا الحقيقيين فقط، بعد التحقق منها.', revCta:'ابدأ تجربتك معنا',
       ctaH:'جاهز لتبدأ؟', ctaP:'أخبرنا عن مشروعك وسنرد عليك بأفضل حل.',
       ctaWa:'واتساب', ctaMail:'راسلنا بالبريد',
-      footNote:'نسخة تجريبية — المحتوى قيد الإنشاء'
+      footNote:'نسخة تجريبية — المحتوى قيد الإنشاء',
+      amTag:"مثال تطبيقي",
+      amTitle:"أين تضيع الأرباح في متجر إلكتروني؟",
+      amIntro:"حلّلنا 100,312 طلبًا من بيانات طلبات أمازون (عيّنة 10%، من فبراير 2024 إلى فبراير 2026)، والسؤال: كم تكلّفنا المرتجعات والخصومات، وما الذي نبدأ به؟ خرجنا بإجابات واضحة تُبنى عليها القرارات.",
+      amStat1:"طلب جرى تحليله (عيّنة 10%)",
+      amStat2:"مبيعات ضائعة بسبب المرتجعات والإلغاءات",
+      amStat3:"في هامش الربح مع كل 5% خصم إضافي",
+      amStatF2:"{n} مليون يورو",
+      amStatF3:"−{n} نقطة",
+      amPrevAria:"ملخص النتائج في ست شرائح",
+      amS1t:"الصورة الكبيرة",
+      amS1:"بعنا بقيمة 36.1 مليون يورو وربحنا 14.4 مليون يورو بهامش 39.9%. المبيعات ثابتة بين السنتين (−0.2%).",
+      amS2t:"أين تضيع المبيعات",
+      amS2:"نفقد 15.0% من المبيعات (5.4 مليون يورو) بسبب المرتجعات والإلغاءات.",
+      amS3t:"الخصم يقلّل الربح",
+      amS3:"كل 5% خصم إضافي ينقص الهامش 3.5 نقطة، ولا يشتري العميل كمية أكبر.",
+      amS4t:"المرتجعات التي نتسبب فيها",
+      amS4:"60.0% من المرتجعات سببها منتج خاطئ أو معيب أو لا يطابق الوصف.",
+      amS5t:"بيانات الحالة متناقضة",
+      amS5:"في 21.7% من الطلبات تتناقض حالة الطلب مع حالة التوصيل أو الدفع.",
+      amS6t:"ما نبدأ به",
+      amS6:"خمسة إجراءات مرتّبة حسب الأهمية: الخصم، الحالات، المرتجعات، وعد التوصيل، قيمة الطلب.",
+      amQaH:"الأسئلة التي طرحها المشروع، وما وجدناه",
+      amQ1:"أين تضيع الأرباح؟",
+      amA1:"من كل 100 يورو نبيعها يضيع نحو 15 يورو: 10.0% من الطلبات تُرجَع و5.0% تُلغى. القيمة 5.4 مليون يورو (22.2 مليون درهم) في هذه العيّنة، والربح الذي كان داخلها 2.1 مليون يورو.",
+      amQ2:"هل يزيد الخصم المبيعات؟",
+      amA2:"لا. 70% من الطلبات عليها خصم، وكل 5% إضافية تنقص الهامش 3.5 نقطة، بينما عدد الوحدات في الطلب لا يتغير تقريبًا. تحديد الخصم بـ 10% قد يضيف حتى 983 ألف يورو (6.8% من الربح).",
+      amQ3:"هل نعرف سبب الإرجاع؟",
+      amA3:"ليس بعد. فحصنا 36 عاملًا (الدولة والفئة والخصم والشحن وغيرها) ولم يفسّر أي منها الإرجاع، ونموذج التنبؤ لم يتفوق على التخمين. السبب المسجّل الوحيد هو حقل «سبب الإرجاع»، و60.0% منه منتج خاطئ أو معيب أو لا يطابق الوصف.",
+      amQ4:"من أين نبدأ؟",
+      amA4:"بتجربة الخصم 4 إلى 6 أسابيع مع مجموعة بلا خصم. ثم بإصلاح الحالات المتناقضة، فهي في 21.7% من الطلبات (21,807 طلبًا). بعدها نقلّل المرتجعات التي نتسبب فيها.",
+      amCta:"اطلب لوحة وتقريرًا مثل هذا ←",
+      amNote:"تحليل مستقل لعيّنة من بيانات طلبات أمازون، وليس صادرًا عن أمازون. المبالغ محوّلة إلى اليورو والدرهم بسعر الصرف السائد وقت التحليل.",
+      amOpenDash:"افتح اللوحة بحجم كامل ↗",
+      amOpenRep:"افتح التقرير بحجم كامل ↗",
+      amAltDash:"لقطة من لوحة مبيعات وأرباح أمازون التفاعلية المبنية على عيّنة من بيانات الطلبات",
+      amAltRep:"لقطة من التقرير التحليلي «أين نخسر الأرباح، وماذا نفعل؟» لمشروع بيانات طلبات أمازون",
+      amCavT:"تحفّظات نذكرها بصدق",
+      amCav1:"الكمية والتقييم موزّعان بانتظام شديد في العيّنة، وهذا يحدّ من استنتاجات «لا يوجد نمط».",
+      amCav2:"الأرقام لعيّنة 10% ولم تُضرب في عشرة.",
+      amCav3:"نرى المشترين فقط، فلا يمكن إثبات أثر الخصم السببي إلا بتجربة.",
+      amCav4:"الربح لا يشمل الشحن (1.1 مليون يورو) ولا الضريبة (2.7 مليون يورو).",
+      amCav5:"في 21.7% من الطلبات تتناقض الحالات، واعتمدنا حالة الطلب."
+
     },
     en: {
       docTitle:'Guru for Smart Solutions — Smart tools, data & learning', metaDesc:'Smart tools, data analytics projects and educational courses in one place, from the Guru team.',
@@ -56,13 +98,12 @@
       hubAria:'The four Guru services', hub1:'Ready-made tools', hub1s:'Working from day one', hub2:'Task automation', hub2s:'Saves hours of manual work', hub3:'Interactive dashboards', hub3s:'Clearer decisions from your data', hub4:'Educational courses', hub4s:'In business solutions',
       liveTitle:'Sample dashboard', sample:'Sample data',
       k1:'Revenue', k2:'Orders', k3:'Growth',
-      toolsH:'Smart tools that work from the first click', toolsP:'Tools you can use right away, designed and built by the Guru agency: auto publishing, CRM, ERP and more.',
-      soon:'Under update', soonImg:'Under update', demo:'Request a demo →',
-      liveNow:'Available now', mjCta:'Open the tool →',
-      t1:'Mr. Josef', t1p:'A tool that schedules your posts and publishes them automatically to your channels at the time you choose, from one place, without opening each platform separately.',
+      toolsH:'Smart tools that work from the first click', toolsP:'SaaS tools designed and built by Guru: one-click deployment, CRM and ERP.',
+      soon:'Coming soon', soonImg:'Image coming soon', demo:'Request a demo →',
+      t1:'One-click auto deploy', t1p:'Put your project online without complexity or command lines.',
       t2:'CRM system', t2p:'Track customers, deals and conversations from one dashboard.',
       t3:'ERP system', t3p:'Manage purchasing, inventory, projects and costs in one system.',
-      dataH:'A real example of what you will get', dataP:'A complete interactive dashboard and analytical report, built from 100,000 records. This is what the final product we deliver to you looks like.',
+      dataH:"Real examples of what you will get", dataP:"Complete interactive dashboards and analytical reports, built from real data. This is what the final product we deliver to you looks like.",
       d1t:'Supply chain disruption recovery', d1p:'100,000 disruption incidents: revenue loss in dollars and recovery in days, in an interactive dashboard.', live:'Real example', openProj:'Open the project →',
       d2t:'Smart financial reports', d2p:'An executive summary for every dashboard, reviewed by a human.',
       d3t:'BI for contractors', d3p:'Follow costs, projects and variances.',
@@ -78,7 +119,50 @@
       revEmpty:'Be the first to share your experience', revEmptyP:'We only show real, verified reviews from our clients here.', revCta:'Start with us',
       ctaH:'Ready to start?', ctaP:'Tell us about your project and we will reply with the best solution.',
       ctaWa:'WhatsApp', ctaMail:'Email us',
-      footNote:'Preview version — content under construction'
+      footNote:'Preview version — content under construction',
+      amTag:"Applied example",
+      amTitle:"Where do profits disappear in an online store?",
+      amIntro:"We analysed 100,312 orders from Amazon order data (a 10% sample, February 2024 to February 2026). The question: how much do returns and discounts cost us, and where do we start? We reached clear answers that decisions can be built on.",
+      amStat1:"orders analysed (10% sample)",
+      amStat2:"sales lost to returns and cancellations",
+      amStat3:"in profit margin for every extra 5% discount",
+      amStatF2:"{n} million euros",
+      amStatF3:"−{n} points",
+      amPrevAria:"Summary of results in six slides",
+      amS1t:"The big picture",
+      amS1:"We sold 36.1 million euros and made 14.4 million euros in profit, a 39.9% margin. Sales were flat between the two years (−0.2%).",
+      amS2t:"Where sales are lost",
+      amS2:"We lose 15.0% of sales (5.4 million euros) to returns and cancellations.",
+      amS3t:"Discounts reduce profit",
+      amS3:"Every extra 5% discount cuts the margin by 3.5 points, and customers do not buy a larger quantity.",
+      amS4t:"Returns we cause ourselves",
+      amS4:"60.0% of returns are caused by a wrong or defective product, or one that does not match its description.",
+      amS5t:"Status data contradicts itself",
+      amS5:"In 21.7% of orders, the order status contradicts the delivery or payment status.",
+      amS6t:"Where to start",
+      amS6:"Five actions in order of priority: discounts, statuses, returns, delivery promise, order value.",
+      amQaH:"The questions the project asked, and what we found",
+      amQ1:"Where do profits disappear?",
+      amA1:"Out of every 100 euros we sell, about 15 euros are lost: 10.0% of orders are returned and 5.0% are cancelled. The value is 5.4 million euros (22.2 million dirhams) in this sample, and the profit that was inside it was 2.1 million euros.",
+      amQ2:"Do discounts increase sales?",
+      amA2:"No. 70% of orders carry a discount, and every extra 5% cuts the margin by 3.5 points, while the number of units per order barely changes. Capping discounts at 10% could add up to 983 thousand euros (6.8% of profit).",
+      amQ3:"Do we know why customers return items?",
+      amA3:"Not yet. We tested 36 factors (country, category, discount, shipping and more) and none explained returns; the prediction model did not beat guessing. The only recorded reason is the \"return reason\" field, and 60.0% of it is a wrong or defective product, or one that does not match its description.",
+      amQ4:"Where do we start?",
+      amA4:"With a 4 to 6 week discount trial against a no-discount group. Then by fixing the contradictory statuses, found in 21.7% of orders (21,807 orders). After that, we reduce the returns we cause ourselves.",
+      amCta:"Request a dashboard and report like this →",
+      amNote:"An independent analysis of a sample of Amazon order data, not issued by Amazon. Amounts are converted to euros and dirhams at the exchange rate prevailing at the time of the analysis.",
+      amOpenDash:"Open the dashboard full size ↗",
+      amOpenRep:"Open the report full size ↗",
+      amAltDash:"Screenshot of the interactive sales and profit dashboard built from a sample of Amazon order data",
+      amAltRep:"Screenshot of the analytical report \"Where are we losing profit, and what do we do?\" for the Amazon order data project",
+      amCavT:"Caveats, stated honestly",
+      amCav1:"Quantity and rating are spread very evenly in the sample, which limits any \"no pattern\" conclusions.",
+      amCav2:"The figures are for a 10% sample and were not multiplied by ten.",
+      amCav3:"We only see buyers, so the causal effect of discounts can only be proven with an experiment.",
+      amCav4:"Profit does not include shipping (1.1 million euros) or tax (2.7 million euros).",
+      amCav5:"In 21.7% of orders the statuses contradict each other, and we used the order status."
+
     },
     es: {
       docTitle:'Guru for Smart Solutions — Herramientas, datos y formación', metaDesc:'Herramientas inteligentes, proyectos de análisis de datos y cursos educativos en un solo lugar, del equipo de Guru.',
@@ -95,13 +179,12 @@
       hubAria:'Los cuatro servicios de Guru', hub1:'Herramientas listas', hub1s:'Funcionan desde el primer día', hub2:'Automatización', hub2s:'Ahorra horas de trabajo manual', hub3:'Paneles interactivos', hub3s:'Decisiones más claras con tus datos', hub4:'Cursos educativos', hub4s:'En soluciones empresariales',
       liveTitle:'Panel de ejemplo', sample:'Datos de ejemplo',
       k1:'Ingresos', k2:'Pedidos', k3:'Crecimiento',
-      toolsH:'Herramientas inteligentes desde el primer clic', toolsP:'Herramientas que puedes usar de inmediato, diseñadas y creadas por la agencia Guru: publicación automática, CRM, ERP y más.',
-      soon:'En actualización', soonImg:'En actualización', demo:'Solicitar una demo →',
-      liveNow:'Disponible ahora', mjCta:'Abrir la herramienta →',
-      t1:'Mr. Josef', t1p:'Una herramienta que programa tus publicaciones y las publica automáticamente en tus canales a la hora que elijas, desde un solo lugar, sin abrir cada plataforma por separado.',
+      toolsH:'Herramientas inteligentes desde el primer clic', toolsP:'Herramientas SaaS diseñadas y creadas por Guru: despliegue en un clic, CRM y ERP.',
+      soon:'Próximamente', soonImg:'Imagen próximamente', demo:'Solicitar una demo →',
+      t1:'Despliegue automático en un clic', t1p:'Publica tu proyecto en internet sin complicaciones ni comandos.',
       t2:'Sistema CRM', t2p:'Sigue clientes, oportunidades y conversaciones desde un solo panel.',
       t3:'Sistema ERP', t3p:'Gestiona compras, inventario, proyectos y costes en un sistema integrado.',
-      dataH:'Un ejemplo real de lo que recibirás', dataP:'Un panel interactivo y un informe analítico completos, creados a partir de 100.000 registros. Así es el producto final que te entregamos.',
+      dataH:"Ejemplos reales de lo que recibirás", dataP:"Paneles interactivos e informes analíticos completos, creados a partir de datos reales. Así es el producto final que te entregamos.",
       d1t:'Recuperación ante disrupciones de la cadena de suministro', d1p:'100.000 incidentes de disrupción: pérdida de ingresos en dólares y recuperación en días, en un panel interactivo.', live:'Ejemplo real', openProj:'Abrir el proyecto →',
       d2t:'Informes financieros inteligentes', d2p:'Un resumen ejecutivo para cada panel, revisado por una persona.',
       d3t:'BI para contratistas', d3p:'Controla costes, proyectos y desviaciones.',
@@ -117,13 +200,62 @@
       revEmpty:'Sé el primero en compartir tu experiencia', revEmptyP:'Aquí solo mostramos opiniones reales y verificadas de nuestros clientes.', revCta:'Empieza con nosotros',
       ctaH:'¿Listo para empezar?', ctaP:'Cuéntanos tu proyecto y te responderemos con la mejor solución.',
       ctaWa:'WhatsApp', ctaMail:'Escríbenos',
-      footNote:'Versión de prueba — contenido en construcción'
+      footNote:'Versión de prueba — contenido en construcción',
+      amTag:"Ejemplo aplicado",
+      amTitle:"¿Dónde se pierden los beneficios en una tienda online?",
+      amIntro:"Analizamos 100.312 pedidos de datos de pedidos de Amazon (muestra del 10 %, de febrero de 2024 a febrero de 2026). La pregunta: ¿cuánto nos cuestan las devoluciones y los descuentos, y por dónde empezamos? Obtuvimos respuestas claras sobre las que apoyar las decisiones.",
+      amStat1:"pedidos analizados (muestra del 10 %)",
+      amStat2:"ventas perdidas por devoluciones y cancelaciones",
+      amStat3:"en el margen de beneficio por cada 5 % de descuento adicional",
+      amStatF2:"{n} millones de euros",
+      amStatF3:"−{n} puntos",
+      amPrevAria:"Resumen de resultados en seis diapositivas",
+      amS1t:"El panorama general",
+      amS1:"Vendimos 36,1 millones de euros y ganamos 14,4 millones de euros, con un margen del 39,9 %. Las ventas se mantienen estables entre los dos años (−0,2 %).",
+      amS2t:"Dónde se pierden las ventas",
+      amS2:"Perdemos el 15,0 % de las ventas (5,4 millones de euros) por devoluciones y cancelaciones.",
+      amS3t:"El descuento reduce el beneficio",
+      amS3:"Cada 5 % de descuento adicional reduce el margen 3,5 puntos, y el cliente no compra una cantidad mayor.",
+      amS4t:"Devoluciones que provocamos",
+      amS4:"El 60,0 % de las devoluciones se debe a un producto equivocado, defectuoso o que no coincide con la descripción.",
+      amS5t:"Datos de estado contradictorios",
+      amS5:"En el 21,7 % de los pedidos, el estado del pedido contradice el estado de la entrega o del pago.",
+      amS6t:"Por dónde empezar",
+      amS6:"Cinco acciones por orden de importancia: descuento, estados, devoluciones, promesa de entrega y valor del pedido.",
+      amQaH:"Las preguntas que planteó el proyecto y lo que encontramos",
+      amQ1:"¿Dónde se pierden los beneficios?",
+      amA1:"De cada 100 euros que vendemos se pierden unos 15: el 10,0 % de los pedidos se devuelve y el 5,0 % se cancela. El valor es de 5,4 millones de euros (22,2 millones de dírhams) en esta muestra, y el beneficio que había dentro era de 2,1 millones de euros.",
+      amQ2:"¿El descuento aumenta las ventas?",
+      amA2:"No. El 70 % de los pedidos lleva descuento y cada 5 % adicional reduce el margen 3,5 puntos, mientras que el número de unidades por pedido casi no cambia. Limitar el descuento al 10 % podría aportar hasta 983 mil euros (el 6,8 % del beneficio).",
+      amQ3:"¿Conocemos el motivo de las devoluciones?",
+      amA3:"Todavía no. Examinamos 36 factores (país, categoría, descuento, envío y otros) y ninguno explicó las devoluciones; el modelo de predicción no superó al azar. El único motivo registrado es el campo «motivo de devolución», y el 60,0 % de él es un producto equivocado, defectuoso o que no coincide con la descripción.",
+      amQ4:"¿Por dónde empezamos?",
+      amA4:"Con una prueba de descuento de 4 a 6 semanas frente a un grupo sin descuento. Después, corrigiendo los estados contradictorios, presentes en el 21,7 % de los pedidos (21.807 pedidos). Luego reducimos las devoluciones que provocamos.",
+      amCta:"Solicita un panel e informe como este →",
+      amNote:"Análisis independiente de una muestra de datos de pedidos de Amazon, no emitido por Amazon. Los importes se convierten a euros y dírhams al tipo de cambio vigente en el momento del análisis.",
+      amOpenDash:"Abrir el panel a tamaño completo ↗",
+      amOpenRep:"Abrir el informe a tamaño completo ↗",
+      amAltDash:"Captura del panel interactivo de ventas y beneficios creado a partir de una muestra de datos de pedidos de Amazon",
+      amAltRep:"Captura del informe analítico «¿Dónde perdemos beneficios y qué hacemos?» del proyecto de datos de pedidos de Amazon",
+      amCavT:"Salvedades, con total transparencia",
+      amCav1:"La cantidad y la valoración están repartidas de forma muy uniforme en la muestra, lo que limita las conclusiones de «no hay patrón».",
+      amCav2:"Las cifras corresponden a una muestra del 10 % y no se multiplicaron por diez.",
+      amCav3:"Solo vemos a los compradores, así que el efecto causal del descuento solo se puede demostrar con un experimento.",
+      amCav4:"El beneficio no incluye el envío (1,1 millones de euros) ni los impuestos (2,7 millones de euros).",
+      amCav5:"En el 21,7 % de los pedidos los estados se contradicen, y usamos el estado del pedido."
+
     }
   };
 
   var root = document.documentElement;
   function safeGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
   function safeSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+
+  /* keep figures (and their % sign) in one left-to-right run so they never flip inside Arabic text */
+  function isolateNums(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/(\u2212?\d+(?:[.,]\d+)*[\s\u00a0]?%?)/g, function(m){ var t = m.replace(/[\s\u00a0]+$/,''); return '<bdi dir="ltr">' + t + '</bdi>' + m.slice(t.length); });
+  }
 
   function setLang(lang){
     if (!T[lang]) lang = 'ar';
@@ -132,7 +264,8 @@
     var dict = T[lang];
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var v = dict[el.getAttribute('data-i18n')];
-      if (v != null) el.textContent = v;
+      if (v == null) return;
+      if (el.hasAttribute('data-i18n-num')) el.innerHTML = isolateNums(v); else el.textContent = v;
     });
     document.querySelectorAll('[data-i18n-aria]').forEach(function(el){ var v = dict[el.getAttribute('data-i18n-aria')]; if (v) el.setAttribute('aria-label', v); });
     document.querySelectorAll('[data-i18n-alt]').forEach(function(el){ var v = dict[el.getAttribute('data-i18n-alt')]; if (v) el.setAttribute('alt', v); });
@@ -142,7 +275,6 @@
     document.querySelectorAll('[data-shot]').forEach(function(i){ i.src = i.dataset.shot.replace('{lang}', lang); });
     var cur = document.getElementById('lang-cur');
     if (cur) cur.textContent = {ar:'العربية', en:'English', es:'Español'}[lang];
-    document.querySelectorAll('[data-app-link]').forEach(function(el){ el.setAttribute('href', el.getAttribute('data-app-link') + '/' + lang); });
     document.title = dict.docTitle;
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', dict.metaDesc);
@@ -188,9 +320,13 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   /* ---- project showcase: swipeable dashboard / report slider + animated figures ---- */
-  (function () {
-    var cs = document.getElementById('case'); if (!cs) return;
-    var vp = document.getElementById('case-vp'), track = document.getElementById('case-track');
+  var STATS_BY = {
+    supply: [{ v: 100000, d: 0 }, { v: 252.3, d: 1, f: 'statF2' }, { v: 28, d: 0, f: 'statF3' }],
+    amazon: [{ v: 100312, d: 0 }, { v: 5.4, d: 1, f: 'amStatF2' }, { v: 3.5, d: 1, f: 'amStatF3' }]
+  };
+  function initCase(cs) {
+    var vp = cs.querySelector('.case-viewport'), track = cs.querySelector('.case-track');
+    if (!vp || !track) return;
     var tabsWrap = cs.querySelector('.case-tabs'), tabs = Array.prototype.slice.call(cs.querySelectorAll('.case-tab'));
     var slides = Array.prototype.slice.call(cs.querySelectorAll('.case-slide'));
     var prev = cs.querySelector('.case-nav.prev'), next = cs.querySelector('.case-nav.next'), shine = cs.querySelector('.case-shine');
@@ -259,14 +395,15 @@
     document.addEventListener('guru-lang-applied', function () { place(0, false); renderStats(); });
 
     /* animated figures (count-up once, re-formatted when the language changes) */
-    var STATS = [{ v: 100000, d: 0 }, { v: 252.3, d: 1, f: 'statF2' }, { v: 28, d: 0, f: 'statF3' }];
+    var STATS = STATS_BY[cs.getAttribute('data-case')] || STATS_BY.supply;
     var statEls = Array.prototype.slice.call(cs.querySelectorAll('[data-stat]')), prog = 0;
     function renderStats() {
       var lang = root.lang, dict = T[lang] || T.ar, loc = lang === 'es' ? 'es-ES' : 'en-US';
       statEls.forEach(function (el) {
         var s = STATS[+el.getAttribute('data-stat')];
         var num = new Intl.NumberFormat(loc, { minimumFractionDigits: s.d, maximumFractionDigits: s.d, useGrouping: true }).format(s.v * prog);
-        el.textContent = s.f ? dict[s.f].replace('{n}', num) : num;
+        /* a signed figure (−3.5, −28%) stays one left-to-right run, so the minus never lands on the wrong side in Arabic */
+        el.innerHTML = s.f ? dict[s.f].replace(/(\u2212?\{n\}%?)/, function (m) { return '<bdi dir="ltr">' + m.replace('{n}', num) + '</bdi>'; }) : num;
       });
     }
     function countUp() {
@@ -290,5 +427,6 @@
       io.observe(cs);
     } else { prog = 1; renderStats(); cs.classList.add('in'); }
     go(0); place(0, false);
-  })();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.case'), initCase);
 })();
