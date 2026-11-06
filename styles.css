@@ -405,7 +405,9 @@ html[dir="rtl"] .scroll-progress{transform-origin:right}
 .web-cta{margin-top:26px;display:flex;justify-content:center}
 
 /* second showcase: Amazon orders (same look as the first showcase; only its screenshots differ) */
-.case + .case{margin-top:36px}
+.cases{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;max-width:700px;margin:0 auto}
+.cases > .case{max-width:none;margin:0}
+@media (min-width:1000px){.cases .qa{grid-template-columns:1fr}.cases .case-stats{grid-template-columns:1fr}.cases .case-stats li{flex-direction:row;align-items:center;gap:12px}.cases .cs-n{flex:none;min-width:92px}.cases{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:none;align-items:start}}
 .case-amazon .case-viewport{aspect-ratio:2400/1959}
 .case-amazon #slide-am-rep{background:#dde1e4}
 .case-amazon #slide-am-rep img{object-fit:contain;object-position:center}
@@ -417,24 +419,3 @@ html[dir="rtl"] .scroll-progress{transform-origin:right}
 .am-cav summary::before{content:"+";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid color-mix(in srgb,var(--gold) 45%,var(--line));font-weight:800;line-height:1;color:var(--gold)}
 .am-cav[open] summary::before{content:"\2212"}
 .am-cav ul{margin:10px 0 0;padding-inline-start:1.2em;display:grid;gap:6px;line-height:1.65}
-
-/* project tabs: two equal columns that always line up with the sliding pill (no overlap on narrow phones) */
-.case-tabs{display:grid;grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));width:max-content;max-width:100%}
-.case-tab{display:flex;align-items:center;justify-content:center;min-width:0;min-height:38px;text-align:center;white-space:normal;line-height:1.3}
-@media (max-width:560px){
-  .case-tabs{width:100%}
-  .case-tab{padding:7px 8px;font-size:.8rem}
-}
-@media (max-width:360px){.case-tab{padding:6px 6px;font-size:.76rem}}
-@media (max-width:560px){
-  /* long figures (e.g. "5,4 millones de euros") wrap the caption under them instead of pushing it out of the tile */
-  .case-stats li{flex-wrap:wrap;row-gap:2px}
-  .case-stats li .cs-n{min-width:0}
-  .case-stats li span{flex:1 1 130px;min-width:0}
-}
-
-/* language menu and header: opaque where the browser cannot blur what is behind them (no text showing through) */
-.lang-menu{background:var(--surface)}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
-  .site-header,.site-header.is-scrolled,.subnav{background:var(--bg)}
-}
