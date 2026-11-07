@@ -194,7 +194,8 @@ html:has(.subnav){scroll-padding-top:128px}
 .pay-head{text-align:center;max-width:640px;margin:0 auto 28px}
 .pay-head h3{font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:800;margin:0 0 8px}
 .pay-head p:last-child{color:var(--muted);margin:0}
-.pay-grid{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;max-width:1080px}
+.pay-grid{--n:5;--g:14px;list-style:none;margin:0 auto;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--g);max-width:1080px}
+.pay-grid > .pay-tile{flex:0 0 calc((100% - (var(--n) - 1) * var(--g)) / var(--n));min-width:0}
 .pay-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:132px;padding:18px 10px 16px;border-radius:18px;border:1px solid var(--line);background:var(--surface);text-align:center;
   transition:transform .2s,border-color .2s,box-shadow .2s}
 .pay-tile:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--gold) 55%,var(--line));box-shadow:var(--shadow)}
@@ -210,8 +211,8 @@ html[lang="en"] .pay-word-sm,html[lang="es"] .pay-word-sm{font-family:var(--font
 .pay-trust span{display:inline-flex;align-items:center;gap:8px}
 .pay-trust svg{color:var(--ok);width:20px;height:20px}
 .pay-note{text-align:center;color:var(--muted);font-size:.86rem;margin:12px 0 0}
-@media (max-width:900px){.pay-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:480px){.pay-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pay-tile{min-height:116px;padding:14px 8px}.pay-section{padding-top:32px}}
+@media (max-width:900px){.pay-grid{--n:3}}
+@media (max-width:480px){.pay-grid{--n:2;--g:10px}.pay-tile{min-height:116px;padding:14px 8px}.pay-section{padding-top:32px}}
 
 /* footer payment strip */
 .foot-pay{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line)}
