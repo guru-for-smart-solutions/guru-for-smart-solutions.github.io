@@ -303,7 +303,7 @@
     <p data-i18n="ctaP"></p>
     <div class="cta-row center">
       <a class="btn btn-gold" href="https://wa.me/201023290481" target="_blank" rel="noopener noreferrer" data-i18n="ctaWa"></a>
-      <a class="btn btn-ghost" href="https://mail.google.com/mail/?view=cm&fs=1&to=customer.care.withme%40gmail.com" target="_blank" rel="noopener noreferrer" data-i18n="ctaMail"></a>
+      <a class="btn btn-ghost" id="mail-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=customer.care.withme%40gmail.com" target="_blank" rel="noopener noreferrer" data-i18n="ctaMail"></a>
     </div>
     <p class="mail"><bdi dir="ltr">customer.care.withme@gmail.com</bdi></p>
   </div>
@@ -322,5 +322,39 @@
 <script src="app.js?v=18"></script>
 <script src="assets/guru-pay.js?v=11"></script>
 <script src="assets/guru-header.js?v=1"></script>
+<script>
+/* Contact by email: opens the Gmail app (compose, To pre-filled, empty subject) on phones; Gmail web compose on computers. */
+(function () {
+  var TO = 'customer.care.withme@gmail.com';
+  var btn = document.getElementById('mail-btn');
+  if (!btn) return;
+  function platform(ua, touch) {
+    if (/Android/i.test(ua)) return 'android';
+    if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && touch > 1)) return 'ios';
+    return 'desktop';
+  }
+  function target(p) {
+    var mailto = 'mailto:' + TO;
+    if (p === 'android') return { url: 'intent:' + TO + '#Intent;scheme=mailto;action=android.intent.action.SENDTO;package=com.google.android.gm;S.browser_fallback_url=' + encodeURIComponent(mailto) + ';end', fallback: null };
+    if (p === 'ios') return { url: 'googlegmail:///co?to=' + encodeURIComponent(TO), fallback: mailto };
+    return null;
+  }
+  window.__guruMailTarget = function (ua, touch) { return target(platform(ua, touch)); };
+  btn.addEventListener('click', function (e) {
+    var t = target(platform(navigator.userAgent || '', navigator.maxTouchPoints || 0));
+    if (!t) return;                       /* computer: let the normal Gmail web link open */
+    e.preventDefault();
+    var left = false;
+    function mark() { if (document.hidden) left = true; }
+    document.addEventListener('visibilitychange', mark);
+    window.addEventListener('pagehide', function () { left = true; });
+    window.location.href = t.url;
+    if (t.fallback) setTimeout(function () {
+      document.removeEventListener('visibilitychange', mark);
+      if (!left && !document.hidden) window.location.href = t.fallback;
+    }, 1400);
+  });
+})();
+</script>
 </body>
 </html>
