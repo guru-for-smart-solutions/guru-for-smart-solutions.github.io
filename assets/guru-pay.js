@@ -11,10 +11,9 @@
     { id: 'mastercard', name: 'Mastercard', icon: 'chip',   kind: 'bank' },
     { id: 'paypal',     name: 'PayPal',     icon: 'send',   kind: 'online' },
     { id: 'applepay',   name: 'Apple Pay',  icon: 'phone',  kind: 'mobile' },
-    { id: 'usdt',       name: 'USDT',       icon: 'coin',   kind: 'crypto' },
     { id: 'wallets',    name: null,         icon: 'wallet', kind: 'wallets' }   /* generic tile: digital wallets */
   ];
-  var FOOTER_IDS = ['visa', 'mastercard', 'paypal', 'applepay', 'usdt'];
+  var FOOTER_IDS = ['visa', 'mastercard', 'paypal', 'applepay'];
 
   var TXT = {
     ar: { eyebrow: 'طرق الدفع', h: 'ادفع من أي مكان في العالم', p: 'نستقبل المدفوعات من جميع الدول عبر وسائل دفع عالمية آمنة وموثوقة.',
