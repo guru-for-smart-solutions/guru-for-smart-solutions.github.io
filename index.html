@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="ar" dir="rtl" data-theme="dark">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guru for Smart Solutions</title>
 <meta name="description" content="Guru for Smart Solutions &#x2014; smart tools, data analytics projects and an academy, in one place.">
 <link rel="icon" href="assets/logo.png">
-<script src="assets/guru-theme.js?v=1"></script>
+<script src="assets/guru-theme.js?v=2"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=33">
+<link rel="stylesheet" href="styles.css?v=34">
 <style>.ph.ph-img{padding:0;overflow:hidden;aspect-ratio:1/1;height:auto;min-height:0;border:0;background:none}.ph.ph-img img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}</style>
 </head>
 <body>
@@ -24,6 +24,7 @@
     </a>
     <nav class="nav" aria-label="Main">
       <a href="#tools" data-i18n="navTools"></a>
+      <a href="#automation" data-i18n="navAut"></a>
       <a href="#data" data-i18n="navData"></a>
       <a href="#websites" data-i18n="navWeb"></a>
       <a href="#academy" data-i18n="navAcademy"></a>
@@ -68,7 +69,7 @@
       <div class="cta-row">
         <a class="btn btn-gold" href="#tools" data-i18n="ctaTools"></a>
         <a class="btn btn-ghost" href="#data" data-i18n="ctaData"></a>
-        <a class="btn btn-ghost" href="#data" data-i18n="ctaAut"></a>
+        <a class="btn btn-ghost" href="#automation" data-i18n="ctaAut"></a>
         <a class="btn btn-ghost btn-new" href="#academy"><b class="new" data-i18n="ctaNew"></b><span data-i18n="ctaAcad"></span></a>
       </div>
     </div>
@@ -81,7 +82,7 @@
       </svg>
       <div class="hub-core" aria-hidden="true"><span class="hub-ring"></span><span class="hub-ring r2"></span><img src="assets/logo.png" alt="" width="120" height="120"></div>
       <a class="hub-card c1" href="#tools"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg></span><span class="hub-txt"><b data-i18n="hub1"></b><small data-i18n="hub1s"></small></span></a>
-      <a class="hub-card c2" href="#contact"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></svg></span><span class="hub-txt"><b data-i18n="hub2"></b><small data-i18n="hub2s"></small></span></a>
+      <a class="hub-card c2" href="#automation"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></svg></span><span class="hub-txt"><b data-i18n="hub2"></b><small data-i18n="hub2s"></small></span></a>
       <a class="hub-card c3" href="#data"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></span><span class="hub-txt"><b data-i18n="hub3"></b><small data-i18n="hub3s"></small></span></a>
       <a class="hub-card c4" href="#websites"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M3 9.5h18M7 7h.01M10 7h.01"/><path d="M8.5 15l-1.8-1.5L8.5 12M15.5 12l1.8 1.5L15.5 15M13 11.5l-2 5"/></svg></span><span class="hub-txt"><b data-i18n="hubW"></b><small data-i18n="hubWs"></small></span></a>
       <a class="hub-card c5" href="#academy"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5L12 5l9.5 4.5L12 14z"/><path d="M6.5 11.8V16c0 1.4 2.5 2.8 5.5 2.8s5.5-1.4 5.5-2.8v-4.2"/></svg></span><span class="hub-txt"><b data-i18n="hub4"></b><small data-i18n="hub4s"></small></span></a>
@@ -95,9 +96,10 @@
     <header class="sec-head"><p class="eyebrow" data-i18n="navTools"></p><h2 data-i18n="toolsH"></h2><p data-i18n="toolsP"></p></header>
     <div class="grid3">
       <article class="card">
-        <div class="ph ph-img"><img src="assets/mr-josef.jpg" alt="Mr. Josef" width="1024" height="1024" loading="lazy"></div>
+        <div class="ph ph-img"><span class="trial-ribbon" data-i18n="trialRibbon"></span><img src="assets/mr-josef.jpg" alt="Mr. Josef" width="1024" height="1024" loading="lazy"></div>
         <span class="tag tag-live" data-i18n="liveNow"></span>
         <h3 data-i18n="t1"></h3><p data-i18n="t1p"></p>
+        <a class="trial" href="https://mr-josef-for-social-media.vercel.app/ar" data-app-link="https://mr-josef-for-social-media.vercel.app" target="_blank" rel="noopener"><span class="trial-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></span><span class="trial-txt"><b data-i18n="trialT"></b><small data-i18n="trialS"></small></span><span class="trial-go" data-i18n="trialGo"></span></a>
         <div class="gp-mj" id="gp-mj"></div>
         <a class="link" href="https://mr-josef-for-social-media.vercel.app/ar" data-app-link="https://mr-josef-for-social-media.vercel.app" target="_blank" rel="noopener" data-i18n="mjCta"></a>
       </article>
@@ -114,6 +116,37 @@
         <a class="link" href="#contact" data-i18n="demo"></a>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- AUTOMATION -->
+<section class="section alt" id="automation">
+  <div class="wrap">
+    <header class="sec-head"><p class="eyebrow" data-i18n="navAut"></p><h2 data-i18n="autH"></h2><p data-i18n="autP"></p></header>
+    <ol class="web-steps">
+      <li><span class="qa-n">1</span><div><b data-i18n="as1"></b><p data-i18n="as1p"></p></div></li>
+      <li><span class="qa-n">2</span><div><b data-i18n="as2"></b><p data-i18n="as2p"></p></div></li>
+      <li><span class="qa-n">3</span><div><b data-i18n="as3"></b><p data-i18n="as3p"></p></div></li>
+    </ol>
+    <div class="web-ex-head"><h3 data-i18n="autExH"></h3><p data-i18n="autExP"></p></div>
+    <div class="grid3">
+      <article class="card">
+        <div class="ph ph-flow" role="img" aria-label="Image placeholder"><span data-i18n="soonImg"></span></div>
+        <span class="tag" data-i18n="soon"></span>
+        <h3 data-i18n="ae1"></h3><p data-i18n="ae1p"></p>
+      </article>
+      <article class="card">
+        <div class="ph ph-flow" role="img" aria-label="Image placeholder"><span data-i18n="soonImg"></span></div>
+        <span class="tag" data-i18n="soon"></span>
+        <h3 data-i18n="ae2"></h3><p data-i18n="ae2p"></p>
+      </article>
+      <article class="card">
+        <div class="ph ph-flow" role="img" aria-label="Image placeholder"><span data-i18n="soonImg"></span></div>
+        <span class="tag" data-i18n="soon"></span>
+        <h3 data-i18n="ae3"></h3><p data-i18n="ae3p"></p>
+      </article>
+    </div>
+    <div class="web-cta"><a class="btn btn-gold" href="#contact" data-i18n="autCta"></a></div>
   </div>
 </section>
 
@@ -258,20 +291,34 @@
 <section class="section alt" id="academy">
   <div class="wrap">
     <header class="sec-head"><p class="eyebrow" data-i18n="navAcademy"></p><h2 data-i18n="acadH"></h2><p data-i18n="acadP"></p></header>
+    <div class="free-banner" role="note">
+      <i class="free-spark s1" aria-hidden="true"></i><i class="free-spark s2" aria-hidden="true"></i><i class="free-spark s3" aria-hidden="true"></i><i class="free-spark s4" aria-hidden="true"></i>
+      <div class="free-seal" aria-hidden="true"><span class="free-num"><bdi dir="ltr">100<small>%</small></bdi></span><span class="free-word" data-i18n="freeWord"></span></div>
+      <div class="free-body">
+        <span class="free-kick" data-i18n="freeKick"></span>
+        <h3 data-i18n="freeH"></h3>
+        <p data-i18n="freeP"></p>
+        <ul class="free-chips">
+          <li><i aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span data-i18n="freeC1"></span></li>
+          <li><i aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span data-i18n="freeC2"></span></li>
+          <li><i aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span data-i18n="freeC3"></span></li>
+        </ul>
+      </div>
+    </div>
     <div class="grid3">
       <article class="card">
         <div class="ph ph-video" role="img" aria-label="Image placeholder"><span data-i18n="soonImg"></span></div>
-        <span class="tag" data-i18n="soon"></span>
+        <div class="tags"><span class="tag-free" data-i18n="freeTag"></span><span class="tag" data-i18n="soon"></span></div>
         <h3 data-i18n="c1t"></h3><p data-i18n="c1p"></p>
       </article>
       <article class="card">
         <div class="ph ph-video" role="img" aria-label="Image placeholder"><span data-i18n="soonImg"></span></div>
-        <span class="tag" data-i18n="soon"></span>
+        <div class="tags"><span class="tag-free" data-i18n="freeTag"></span><span class="tag" data-i18n="soon"></span></div>
         <h3 data-i18n="c2t"></h3><p data-i18n="c2p"></p>
       </article>
       <article class="card">
         <div class="ph ph-video" role="img" aria-label="Image placeholder"><span data-i18n="soonImg"></span></div>
-        <span class="tag" data-i18n="soon"></span>
+        <div class="tags"><span class="tag-free" data-i18n="freeTag"></span><span class="tag" data-i18n="soon"></span></div>
         <h3 data-i18n="c3t"></h3><p data-i18n="c3p"></p>
       </article>
     </div>
@@ -322,9 +369,9 @@
 </footer>
 
 <script src="assets/guru-i18n.js?v=8"></script>
-<script src="app.js?v=18"></script>
+<script src="app.js?v=19"></script>
 <script src="assets/guru-pay.js?v=12"></script>
-<script src="assets/guru-price.js?v=1"></script>
+<script src="assets/guru-price.js?v=2"></script>
 <script src="assets/guru-header.js?v=1"></script>
 <script>
 /* Contact by email: opens the Gmail app (compose, To pre-filled, empty subject) on phones; Gmail web compose on computers. */
