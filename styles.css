@@ -582,3 +582,14 @@ html[lang="en"] .free-word,html[lang="es"] .free-word{font-family:var(--font-en)
 @media (max-width:1280px){.nav{gap:16px;font-size:.9rem}}
 @media (max-width:1120px){.nav{gap:12px;font-size:.84rem}}
 @media (max-width:1100px){.nav{display:none}.bar{justify-content:space-between}}
+
+/* package cards: example line + aligned rows */
+.gp-desc{min-height:0}
+.gp-eg{margin:0;padding:10px 12px;border-radius:12px;background:var(--surface-2);border-inline-start:3px solid var(--gold);color:var(--muted);font-size:.88rem;line-height:1.75}
+.gp-eg b{color:var(--gold);font-weight:800}
+@media (min-width:901px){
+  @supports (grid-template-rows:subgrid){
+    .gp-card{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:14px}
+    .gp-feat{align-content:start}
+  }
+}
