@@ -1,5 +1,5 @@
 /* Guru shared theme module.
-   One light/dark choice for the whole site: saved choice > URL (?theme=) > system preference.
+   One light/dark choice for the whole site: saved choice > URL (?theme=) > light (the site's default; the visitor's system setting is not used).
    It is applied before the page is drawn, saved, written into the address bar and into every internal
    link, and re-applied when another tab changes it or when a page is restored from the back/forward cache. */
 (function (w, d) {
@@ -10,9 +10,10 @@
   function read() { try { var v = w.localStorage.getItem(KEY); return ok(v) ? v : null; } catch (e) { return null; } }
   function write(v) { try { w.localStorage.setItem(KEY, v); } catch (e) { /* storage unavailable */ } }
   function fromQuery() { var m = /[?&]theme=(dark|light)(?:&|#|$)/.exec(w.location.search); return m ? m[1] : null; }
-  function system() { return (w.matchMedia && w.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark'; }
+  /* the site opens in white (light) unless the visitor chose otherwise */
+  function fallback() { return 'light'; }
   /* the saved choice is the latest word (an address-bar value can be stale after going back); the URL is the fallback when storage is blocked */
-  function resolve() { return read() || fromQuery() || system(); }
+  function resolve() { return read() || fromQuery() || fallback(); }
 
   /* put ?theme=xx on every internal link to an .html page, keeping its #hash */
   function decorate(theme) {

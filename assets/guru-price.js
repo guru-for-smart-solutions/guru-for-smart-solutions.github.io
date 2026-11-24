@@ -16,7 +16,9 @@
   var SKIP = { XDR: 1 };
 
   /* ---- the prices (EUR) ---- */
-  var MJ = { m: 12, y: 115 };
+  var MJ = { m: 12, y: 104 };
+  /* yearly saving vs 12 monthly payments, computed so it can never drift from the prices above */
+  function mjPct() { return Math.round((1 - MJ.y / (MJ.m * 12)) * 100); }
   var DATA = [{ p: 400 }, { p: 900 }, { p: 1900 }];
   var WEB = [{ p: 450 }, { p: 950 }, { p: 1800 }];
 
@@ -24,7 +26,7 @@
   var TXT = {
     ar: {
       cur: '\u062a\u063a\u064a\u064a\u0631 \u0627\u0644\u0639\u0645\u0644\u0629', from: '\u064a\u0628\u062f\u0623 \u0645\u0646', perM: '/ \u0634\u0647\u0631', perY: '/ \u0633\u0646\u0629', base: '\u0627\u0644\u0633\u0639\u0631 \u0627\u0644\u0623\u0633\u0627\u0633\u064a', cta: '\u0627\u0637\u0644\u0628 \u0647\u0630\u0647 \u0627\u0644\u0628\u0627\u0642\u0629',
-      mjM: '\u0634\u0647\u0631\u064a', mjY: '\u0633\u0646\u0648\u064a', mjSave: '\u0648\u0641\u0651\u0631 20%', mjEq: '\u064a\u0639\u0627\u062f\u0644 {x} \u0634\u0647\u0631\u064a\u064b\u0627', mjAria: '\u0646\u0648\u0639 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0643',
+      mjM: '\u0634\u0647\u0631\u064a', mjY: '\u0633\u0646\u0648\u064a', mjSave: '\u0648\u0641\u0651\u0631 \u2066{p}%\u2069', mjEq: '\u064a\u0639\u0627\u062f\u0644 {x} \u0634\u0647\u0631\u064a\u064b\u0627', mjAria: '\u0646\u0648\u0639 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0643',
       pTitle: '\u0627\u062e\u062a\u0631 \u0627\u0644\u0639\u0645\u0644\u0629', pSearch: '\u0627\u0628\u062d\u062b \u0628\u0627\u0633\u0645 \u0627\u0644\u0639\u0645\u0644\u0629 \u0623\u0648 \u0631\u0645\u0632\u0647\u0627', pTop: '\u0627\u0644\u0623\u0643\u062b\u0631 \u0627\u0633\u062a\u062e\u062f\u0627\u0645\u064b\u0627', pAll: '\u0643\u0644 \u0627\u0644\u0639\u0645\u0644\u0627\u062a', pNone: '\u0644\u0627 \u062a\u0648\u062c\u062f \u0646\u062a\u0627\u0626\u062c \u0645\u0637\u0627\u0628\u0642\u0629',
       pLoad: '\u062c\u0627\u0631\u064d \u062a\u062d\u0645\u064a\u0644 \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0635\u0631\u0641\u2026', pErr: '\u062a\u0639\u0630\u0651\u0631 \u062a\u062d\u0645\u064a\u0644 \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0635\u0631\u0641 \u062d\u0627\u0644\u064a\u064b\u0627.', pRetry: '\u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u0645\u062d\u0627\u0648\u0644\u0629', pClose: '\u0625\u063a\u0644\u0627\u0642', pUpd: '\u0622\u062e\u0631 \u062a\u062d\u062f\u064a\u062b \u0644\u0644\u0623\u0633\u0639\u0627\u0631: {d}',
       note: '\u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0628\u0627\u0644\u064a\u0648\u0631\u0648. \u0639\u0631\u0636 \u0627\u0644\u0639\u0645\u0644\u0627\u062a \u0627\u0644\u0623\u062e\u0631\u0649 \u0627\u0633\u062a\u0631\u0634\u0627\u062f\u064a \u062d\u0633\u0628 \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0635\u0631\u0641 \u0627\u0644\u064a\u0648\u0645\u064a\u0629\u060c \u0648\u0642\u062f \u064a\u062e\u062a\u0644\u0641 \u0642\u0644\u064a\u0644\u064b\u0627 \u0639\u0646 \u0627\u0644\u0633\u0639\u0631 \u0627\u0644\u0641\u0639\u0644\u064a \u0639\u0646\u062f \u0627\u0644\u062f\u0641\u0639.',
@@ -33,7 +35,7 @@
       data: {
         eyebrow: '\u0627\u0644\u0623\u0633\u0639\u0627\u0631', h: '\u0623\u0633\u0639\u0627\u0631 \u062e\u062f\u0645\u0629 \u062a\u062d\u0644\u064a\u0644 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a',
         p: '\u0627\u062e\u062a\u0631 \u062d\u062c\u0645 \u0627\u0644\u0645\u0634\u0631\u0648\u0639 \u0627\u0644\u0645\u0646\u0627\u0633\u0628 \u0644\u0643. \u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u062b\u0627\u0628\u062a\u0629 \u0648\u0648\u0627\u0636\u062d\u0629\u060c \u0648\u0643\u0644 \u0628\u0627\u0642\u0629 \u062a\u0634\u0645\u0644 \u0627\u0644\u062a\u0639\u062f\u064a\u0644\u0627\u062a \u0648\u0627\u0644\u062f\u0639\u0645.', s: '\u062a\u062d\u0644\u064a\u0644 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a',
-        perks: ['\u062a\u0639\u062f\u064a\u0644\u0627\u062a \u0645\u062c\u0627\u0646\u064a\u0629 100%', '\u062f\u0639\u0645 \u0628\u0639\u062f \u0627\u0644\u062a\u0646\u0641\u064a\u0630 \u0645\u062f\u0649 \u0627\u0644\u062d\u064a\u0627\u0629'],
+        perks: ['\u062a\u0639\u062f\u064a\u0644\u0627\u062a \u0645\u062c\u0627\u0646\u064a\u0629 \u2066100%\u2069', '\u062f\u0639\u0645 \u0628\u0639\u062f \u0627\u0644\u062a\u0646\u0641\u064a\u0630 \u0645\u062f\u0649 \u0627\u0644\u062d\u064a\u0627\u0629'],
         fine: '\u0627\u0644\u062a\u0639\u062f\u064a\u0644\u0627\u062a \u0648\u0627\u0644\u062f\u0639\u0645 \u0636\u0645\u0646 \u0646\u0637\u0627\u0642 \u0627\u0644\u0645\u0634\u0631\u0648\u0639 \u0627\u0644\u0645\u062a\u0641\u0642 \u0639\u0644\u064a\u0647\u060c \u0628\u062f\u0648\u0646 \u0625\u0636\u0627\u0641\u0629 \u0645\u0635\u0627\u062f\u0631 \u0628\u064a\u0627\u0646\u0627\u062a \u0623\u0648 \u0644\u0648\u062d\u0627\u062a \u062c\u062f\u064a\u062f\u0629.',
         pk: [
           { n: '\u0623\u0633\u0627\u0633\u064a', d: '\u0644\u0645\u0646 \u0644\u062f\u064a\u0647 \u0645\u0635\u062f\u0631 \u0628\u064a\u0627\u0646\u0627\u062a \u0648\u0627\u062d\u062f \u0648\u064a\u062d\u062a\u0627\u062c \u0644\u0648\u062d\u0629 \u0645\u0624\u0634\u0631\u0627\u062a \u0648\u0627\u0636\u062d\u0629.', f: ['\u0645\u0635\u062f\u0631 \u0628\u064a\u0627\u0646\u0627\u062a \u0648\u0627\u062d\u062f (Excel \u0623\u0648 CSV)', '\u0644\u0648\u062d\u0629 \u0645\u0624\u0634\u0631\u0627\u062a \u062a\u0641\u0627\u0639\u0644\u064a\u0629 \u0648\u0627\u062d\u062f\u0629'] },
@@ -53,7 +55,7 @@
     },
     en: {
       cur: 'Change currency', from: 'Starting from', perM: '/ month', perY: '/ year', base: 'Base price', cta: 'Request this package',
-      mjM: 'Monthly', mjY: 'Yearly', mjSave: 'Save 20%', mjEq: 'equals {x} per month', mjAria: 'Billing period',
+      mjM: 'Monthly', mjY: 'Yearly', mjSave: 'Save {p}%', mjEq: 'equals {x} per month', mjAria: 'Billing period',
       pTitle: 'Choose currency', pSearch: 'Search currency or code', pTop: 'Most used', pAll: 'All currencies', pNone: 'No matching currency',
       pLoad: 'Loading exchange rates\u2026', pErr: 'Exchange rates could not be loaded right now.', pRetry: 'Try again', pClose: 'Close', pUpd: 'Rates last updated: {d}',
       note: 'Base prices are in EUR. Other currencies are shown as a guide using daily exchange rates and may differ slightly from the final amount at payment.',
@@ -82,7 +84,7 @@
     },
     es: {
       cur: 'Cambiar moneda', from: 'Desde', perM: '/ mes', perY: '/ a\u00f1o', base: 'Precio base', cta: 'Solicitar este paquete',
-      mjM: 'Mensual', mjY: 'Anual', mjSave: 'Ahorra 20%', mjEq: 'equivale a {x} al mes', mjAria: 'Periodo de facturaci\u00f3n',
+      mjM: 'Mensual', mjY: 'Anual', mjSave: 'Ahorra {p} %', mjEq: 'equivale a {x} al mes', mjAria: 'Periodo de facturaci\u00f3n',
       pTitle: 'Elige la moneda', pSearch: 'Buscar moneda o c\u00f3digo', pTop: 'M\u00e1s usadas', pAll: 'Todas las monedas', pNone: 'No hay monedas que coincidan',
       pLoad: 'Cargando tipos de cambio\u2026', pErr: 'No se pudieron cargar los tipos de cambio ahora.', pRetry: 'Reintentar', pClose: 'Cerrar', pUpd: '\u00daltima actualizaci\u00f3n: {d}',
       note: 'Los precios base est\u00e1n en EUR. Las dem\u00e1s monedas se muestran como referencia con tipos de cambio diarios y pueden diferir un poco del importe final al pagar.',
@@ -206,7 +208,7 @@
     el.innerHTML =
       '<div class="gp-seg" role="group" aria-label="' + esc(t.mjAria) + '">' +
         '<button type="button" data-gp-per="m" aria-pressed="' + (!y) + '">' + esc(t.mjM) + '</button>' +
-        '<button type="button" data-gp-per="y" aria-pressed="' + y + '">' + esc(t.mjY) + '<em>' + esc(t.mjSave) + '</em></button>' +
+        '<button type="button" data-gp-per="y" aria-pressed="' + y + '">' + esc(t.mjY) + '<em>' + esc(t.mjSave.replace('{p}', mjPct())) + '</em></button>' +
       '</div>' +
       priceLine(eur, y ? t.perY : t.perM, 'mj') +
       (y ? '<p class="gp-sub">' + esc(t.mjEq).replace('{x}', money(MJ.y / 12, activeCur())) + '</p>' : '') +
