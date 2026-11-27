@@ -7,7 +7,7 @@
 
   var bar = d.createElement('div'); bar.className = 'scroll-progress'; bar.setAttribute('aria-hidden', 'true'); d.body.appendChild(bar);
 
-  function menuOpen() { var b = d.getElementById('lang-btn'); return !!b && b.getAttribute('aria-expanded') === 'true'; }
+  function menuOpen() { var b = d.getElementById('lang-btn'), c = d.getElementById('contact-btn'); return (!!b && b.getAttribute('aria-expanded') === 'true') || (!!c && c.getAttribute('aria-expanded') === 'true'); }
   function focusInside() { return header.contains(d.activeElement) && d.activeElement !== d.body; }
 
   function setHidden(v) {
