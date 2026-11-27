@@ -597,7 +597,7 @@ html[lang="en"] .free-word,html[lang="es"] .free-word{font-family:var(--font-en)
 /* ===== policies page + footer links ===== */
 .l{display:none}
 html[lang="ar"] .l-ar,html[lang="en"] .l-en,html[lang="es"] .l-es{display:revert}
-.pol-wrap{max-width:900px}
+.pol-wrap{max-width:1120px}
 .pol-hero{padding:56px 0 8px}
 .pol-hero h1{font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.25;margin:4px 0 14px}
 .pol-lead{color:var(--muted);font-size:1.05rem;line-height:1.9;max-width:720px}
@@ -622,7 +622,14 @@ html[lang="ar"] .l-ar,html[lang="en"] .l-en,html[lang="es"] .l-es{display:revert
 .pol-contact li>span{min-width:130px;color:var(--muted);font-size:.9rem}
 .pol-contact a{color:var(--gold);font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
 .pol-note{color:var(--muted);font-size:.9rem}
-.pol-back{margin:30px 0 40px}
+.pol-back{margin-top:28px;margin-bottom:44px}
+.pol-topbar{margin-bottom:18px}
+.pol-backbtn{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;border:1.5px solid var(--gold);color:var(--gold);background:transparent;font-weight:700;font-size:.95rem;line-height:1.2;transition:background .2s,color .2s,transform .2s}
+.pol-backbtn:hover,.pol-backbtn:focus-visible{background:var(--gold-grad);color:var(--on-gold);transform:translateY(-1px)}
+.pol-arrow{flex:none;transition:transform .2s}
+html[dir="ltr"] .pol-arrow{transform:scaleX(-1)}
+.pol-backbtn:hover .pol-arrow{transform:translateX(3px)}
+html[dir="ltr"] .pol-backbtn:hover .pol-arrow{transform:scaleX(-1) translateX(3px)}
 .pol-page .nav a{white-space:nowrap}
 .foot-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--line)}
 .foot-links a{color:var(--muted);font-weight:600;font-size:.88rem}.foot-links a:hover{color:var(--gold);text-decoration:underline}
