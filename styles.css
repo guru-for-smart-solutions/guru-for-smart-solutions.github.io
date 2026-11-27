@@ -628,3 +628,4 @@ html[lang="ar"] .l-ar,html[lang="en"] .l-en,html[lang="es"] .l-es{display:revert
 .foot-links a{color:var(--muted);font-weight:600;font-size:.88rem}.foot-links a:hover{color:var(--gold);text-decoration:underline}
 .gp-pol{display:inline-block;margin-top:6px;color:var(--gold);font-weight:700;font-size:.85rem;text-decoration:underline;text-underline-offset:3px}
 @media (max-width:700px){.pol-sec{padding:20px 16px;border-radius:18px}.pol-glance{grid-template-columns:1fr}.pol-hero{padding-top:36px}.pol-contact li>span{min-width:0;flex:1 1 100%}}
+.pol-link{color:var(--gold);font-weight:700;text-decoration:underline;text-underline-offset:3px}
