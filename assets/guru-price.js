@@ -25,7 +25,7 @@
   /* ---- text ---- */
   var TXT = {
     ar: {
-      cur: '\u062a\u063a\u064a\u064a\u0631 \u0627\u0644\u0639\u0645\u0644\u0629', from: '\u064a\u0628\u062f\u0623 \u0645\u0646', eg: '\u0645\u062b\u0627\u0644', perM: '/ \u0634\u0647\u0631', perY: '/ \u0633\u0646\u0629', base: '\u0627\u0644\u0633\u0639\u0631 \u0627\u0644\u0623\u0633\u0627\u0633\u064a', cta: '\u0627\u0637\u0644\u0628 \u0647\u0630\u0647 \u0627\u0644\u0628\u0627\u0642\u0629',
+      cur: '\u062a\u063a\u064a\u064a\u0631 \u0627\u0644\u0639\u0645\u0644\u0629', pol: '\u0633\u064a\u0627\u0633\u0629 \u0627\u0644\u0627\u0633\u062a\u0631\u062c\u0627\u0639', from: '\u064a\u0628\u062f\u0623 \u0645\u0646', eg: '\u0645\u062b\u0627\u0644', perM: '/ \u0634\u0647\u0631', perY: '/ \u0633\u0646\u0629', base: '\u0627\u0644\u0633\u0639\u0631 \u0627\u0644\u0623\u0633\u0627\u0633\u064a', cta: '\u0627\u0637\u0644\u0628 \u0647\u0630\u0647 \u0627\u0644\u0628\u0627\u0642\u0629',
       mjM: '\u0634\u0647\u0631\u064a', mjY: '\u0633\u0646\u0648\u064a', mjSave: '\u0648\u0641\u0651\u0631 \u2066{p}%\u2069', mjEq: '\u064a\u0639\u0627\u062f\u0644 {x} \u0634\u0647\u0631\u064a\u064b\u0627', mjAria: '\u0646\u0648\u0639 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0643',
       pTitle: '\u0627\u062e\u062a\u0631 \u0627\u0644\u0639\u0645\u0644\u0629', pSearch: '\u0627\u0628\u062d\u062b \u0628\u0627\u0633\u0645 \u0627\u0644\u0639\u0645\u0644\u0629 \u0623\u0648 \u0631\u0645\u0632\u0647\u0627', pTop: '\u0627\u0644\u0623\u0643\u062b\u0631 \u0627\u0633\u062a\u062e\u062f\u0627\u0645\u064b\u0627', pAll: '\u0643\u0644 \u0627\u0644\u0639\u0645\u0644\u0627\u062a', pNone: '\u0644\u0627 \u062a\u0648\u062c\u062f \u0646\u062a\u0627\u0626\u062c \u0645\u0637\u0627\u0628\u0642\u0629',
       pLoad: '\u062c\u0627\u0631\u064d \u062a\u062d\u0645\u064a\u0644 \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0635\u0631\u0641\u2026', pErr: '\u062a\u0639\u0630\u0651\u0631 \u062a\u062d\u0645\u064a\u0644 \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0635\u0631\u0641 \u062d\u0627\u0644\u064a\u064b\u0627.', pRetry: '\u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u0645\u062d\u0627\u0648\u0644\u0629', pClose: '\u0625\u063a\u0644\u0627\u0642', pUpd: '\u0622\u062e\u0631 \u062a\u062d\u062f\u064a\u062b \u0644\u0644\u0623\u0633\u0639\u0627\u0631: {d}',
@@ -54,7 +54,7 @@
       }
     },
     en: {
-      cur: 'Change currency', from: 'Starting from', eg: 'For example', perM: '/ month', perY: '/ year', base: 'Base price', cta: 'Request this package',
+      cur: 'Change currency', pol: 'Refund policy', from: 'Starting from', eg: 'For example', perM: '/ month', perY: '/ year', base: 'Base price', cta: 'Request this package',
       mjM: 'Monthly', mjY: 'Yearly', mjSave: 'Save {p}%', mjEq: 'equals {x} per month', mjAria: 'Billing period',
       pTitle: 'Choose currency', pSearch: 'Search currency or code', pTop: 'Most used', pAll: 'All currencies', pNone: 'No matching currency',
       pLoad: 'Loading exchange rates\u2026', pErr: 'Exchange rates could not be loaded right now.', pRetry: 'Try again', pClose: 'Close', pUpd: 'Rates last updated: {d}',
@@ -83,7 +83,7 @@
       }
     },
     es: {
-      cur: 'Cambiar moneda', from: 'Desde', eg: 'Por ejemplo', perM: '/ mes', perY: '/ a\u00f1o', base: 'Precio base', cta: 'Solicitar este paquete',
+      cur: 'Cambiar moneda', pol: 'Pol\u00edtica de reembolso', from: 'Desde', eg: 'Por ejemplo', perM: '/ mes', perY: '/ a\u00f1o', base: 'Precio base', cta: 'Solicitar este paquete',
       mjM: 'Mensual', mjY: 'Anual', mjSave: 'Ahorra {p} %', mjEq: 'equivale a {x} al mes', mjAria: 'Periodo de facturaci\u00f3n',
       pTitle: 'Elige la moneda', pSearch: 'Buscar moneda o c\u00f3digo', pTop: 'M\u00e1s usadas', pAll: 'Todas las monedas', pNone: 'No hay monedas que coincidan',
       pLoad: 'Cargando tipos de cambio\u2026', pErr: 'No se pudieron cargar los tipos de cambio ahora.', pRetry: 'Reintentar', pClose: 'Cerrar', pUpd: '\u00daltima actualizaci\u00f3n: {d}',
@@ -212,7 +212,8 @@
       '</div>' +
       priceLine(eur, y ? t.perY : t.perM, 'mj') +
       (y ? '<p class="gp-sub">' + esc(t.mjEq).replace('{x}', money(MJ.y / 12, activeCur())) + '</p>' : '') +
-      baseLine(eur, y ? t.perY : t.perM);
+      baseLine(eur, y ? t.perY : t.perM) +
+      '<a class="gp-pol" href="policies.html#refund">' + esc(t.pol) + '</a>';
   }
 
   function waLink(t, name, eur, service) {
@@ -239,7 +240,7 @@
       '<header class="gp-head"><p class="eyebrow">' + esc(k.eyebrow) + '</p><h3>' + esc(k.h) + '</h3><p>' + esc(k.p) + '</p></header>' +
       '<div class="gp-grid">' + cards + '</div>' +
       (k.fine ? '<p class="gp-fine">' + esc(k.fine) + '</p>' : '') +
-      '<p class="gp-note">' + esc(t.note) + ' ' + esc(t.src) + ' <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener" dir="ltr">Rates By Exchange Rate API</a></p>';
+      '<p class="gp-note">' + esc(t.note) + ' ' + esc(t.src) + ' <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener" dir="ltr">Rates By Exchange Rate API</a> <a class="gp-pol" href="policies.html#refund">' + esc(t.pol) + '</a></p>';
   }
 
   function renderAll() {
